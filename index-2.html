@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+</head>
+<style>
+    .card {
+        border-radius: 20px;
+    }
+
+    .card-header {
+        border-top-left-radius: 20px !important;
+        border-top-right-radius: 20px !important;
+    }
+
+    pre {
+        font-family: 'JetBrains Mono', monospace !important;
+    }
+</style>
+
+<body>
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-8 overflow-auto">
+                    <section class="my-3 mx-auto js-section" id="basic_var">
+                        <div class="card">
+                            <div class="card-body"> JS Varaibles </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>A variable is a
+                                        <pre
+                                            class="d-inline text-danger bg-danger bg-opacity-25 px-1">“named storage”</pre>
+                                        for data.
+                                    </li>
+                                    <li>To create a variable in JavaScript, use the
+                                        <pre class="d-inline text-danger bg-danger bg-opacity-25 px-1">let</pre>,
+                                        <pre class="d-inline text-danger bg-danger bg-opacity-25 px-1">const</pre>
+                                        keyword
+                                    </li>
+                                    <li>We can also declare multiple variables in one line</li>
+                                </ul>
+                            </div>
+
+                            <div class="card-body">
+                                <nav class="nav nav-tabs" id="nav-tab" role="tablist"> <a class="nav-link active"
+                                        id="nav-code-execute-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-code-execute" type="button" role="tab"
+                                        aria-controls="nav-code-execute" aria-selected="true" href="javascript:;">Run
+                                        code</a> <a class="nav-link" id="nav-code-snippet-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-code-snippet" type="button" role="tab"
+                                        aria-controls="nav-code-snippet" aria-selected="false" href="javascript:;">Code
+                                        Snippet</a> </nav>
+                                <div class="tab-content" id="nav-tabContent">
+                                    <div class="tab-pane fade show active" id="nav-code-execute" role="tabpanel"
+                                        aria-labelledby="nav-code-execute-tab">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between align-items-center p-2 bg-light">
+                                                <div>JS Code</div>
+                                                <div>
+                                                    <button type="button"
+                                                        class="btn btn-outline-primary rounded-pill run-code"> <i
+                                                            class="fa fa-play"></i> </button>
+                                                </div>
+                                            </div>
+                                            <div class="editor overflow-auto"></div>
+                                        </div>
+                                        <script class="js-code-block">
+                                            let isValid = true;
+                                            let a = 1, isChecked = true, data = { name: 'XX' };
+
+                                            console.log('isValid', isValid)
+                                            console.log('a', a)
+                                            console.log('isChecked', isChecked)
+                                            console.log('data', data)
+
+
+
+                                        </script>
+                                    </div>
+                                    <div class="tab-pane fade" id="nav-code-snippet" role="tabpanel"
+                                        aria-labelledby="nav-code-snippet-tab">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between align-items-center p-2 bg-light">
+                                                <div>
+                                                    JS Code
+                                                </div>
+                                                <div class="">
+                                                    <button type="button" class="btn btn-outline-primary code-coppy"><i
+                                                            class="fa fa-copy"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="code-slot shadow-sm rounded-3 p-3"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 overflow-auto">
+                    <section id="for-console" class="my-3 mx-auto">
+                        <div class="card">
+                            <div class="card-text text-start ms-3 text-muted">Only last run script can be viewed below
+                            </div>
+                            <div class="card-header bg-transparent border-0 d-flex justify-content-between">
+                                <div>
+                                    <a class="btn btn-outline-primary rounded-pill" data-bs-toggle="collapse"
+                                        href="#collapseExample" role="button" aria-expanded="false"
+                                        aria-controls="multiCollapseExample1"> <i class="fa fa-terminal me-2"
+                                            aria-hidden="true"></i> Toggle console </a>
+                                </div>
+                            </div>
+                            <div class="collapse-in" id="collapseExample">
+                                <div class="card-body" id="html_console"></div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.15.6/min/vs/loader.js"></script>
+<script>
+    require.config({
+        paths: {
+            vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.15.6/min/vs/",
+        },
+    });
+    window.MonacoEnvironment = {
+        getWorkerUrl(workerId, label) {
+            return `data:text/javascript;charset=utf-8,${encodeURIComponent(`
+		self.MonacoEnvironment = {
+			baseUrl: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.15.6/min/'
+		};
+		importScripts('https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.15.6/min/vs/base/worker/workerMain.js');
+		`)}`;
+        },
+    };
+</script>
+<script>
+    var monEditor = {};
+    var evt_collection = {}
+    let js_Sections = document.querySelectorAll("section.js-section");
+    window.addEventListener("DOMContentLoaded", (event) => {
+        initAllEditors();
+    });
+    window.addEventListener('resize', (event) => {
+        // make editor as small as possible
+        if (Object.keys(monEditor).length > 0) {
+            Object.keys(monEditor).map(i => monEditor[i].layout())
+        }
+    })
+
+
+
+    function initAllEditors() {
+        require(["vs/editor/editor.main"], function () {
+            js_Sections.forEach((jsContent, index, arr) => {
+                let container = jsContent.querySelector(".editor");
+                let scripts = jsContent.querySelector(".js-code-block");
+                let scriptText = trimScriptText(String(scripts.innerText));
+                let runCodeBlock = jsContent.querySelector(".run-code");
+                let codeSlot = jsContent.querySelector(".code-slot");
+                let codeCopy = jsContent.querySelector(".code-coppy");
+
+                monEditor["editor_" + index] = monaco.editor.create(container, {
+                    value: scriptText,
+                    language: "javascript",
+                    lineNumbers: "on",
+                    roundedSelection: true,
+                    scrollBeyondLastLine: true,
+                    readOnly: false,
+                    fontFamily: 'Jetbrains Mono',
+                    'fontLigatures': true,
+                    'fontWeight': 400,
+                    'fontSize': '12', // No units
+                    'lineHeight': '20',
+                    theme: "vs-dark",
+                });
+
+                codeSlot.insertAdjacentHTML('afterBegin', `<pre class="prettyprint border-0">${scriptText}</pre>`)
+                codeCopy.addEventListener('click', function (e) {
+                    copyStringToClipboard(scriptText)
+                })
+                runCodeBlock.addEventListener('click', function (e) {
+                    render("editor_" + index);
+                })
+            });
+        });
+    }
+</script>
+<script>
+    function render(indexStr) {
+        var F = new Function((monEditor[indexStr]).getModel().getValue());
+        console.clear();
+        F();
+    }
+
+    function trimScriptText(str) {
+
+        return str.innerText.split('\n').map(i => i.trim()).join('\n')
+    }
+    function copyStringToClipboard(string) {
+        function handler(event) {
+            event.clipboardData.setData('text/plain', string);
+            event.preventDefault();
+            document.removeEventListener('copy', handler, true);
+        }
+
+        document.addEventListener('copy', handler, true);
+        document.execCommand('copy');
+    }
+</script>
+<style>
+    .editor {
+        height: 150px;
+        width: 100%;
+    }
+</style>
+
+</html>
+<script>
+    var oldLog = window.console.log;
+    var console_slot = document.querySelector("#html_console");
+    window.console.log = function (...args) {
+
+        var strinigifiedResult = JSON.stringify(args.length > 1 ? args : args[0], null, 2);
+        var pre = document.createElement("pre");
+        pre.textContent = strinigifiedResult;
+        console_slot.appendChild(pre);
+        oldLog.apply(this, args);
+    };
+    window.console.clear = function (...args) {
+        console_slot.innerHTML = "";
+        oldLog.apply(this, args);
+    };
+</script>
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="cache-control" content="max-age=604800, must-revalidate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <link rel="https://raw.githubusercontent.com/googlearchive/code-prettify/master/styles/sunburst.css">
+    <!-- <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet"> -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="./string_content.js"></script>
+
+
+</head>
+
+<body>
+    <main>
+
+        <div class="container" style="margin-top: 8rem;">
+            <div class="row">
+                <div class="col-12 col-sm-12 overflow-auto">
+                    <section class="my-3 mx-auto js-section" id="arr_shift_pop_push_unshift">
+                        <div class="card">
+                            <div class="card-header">JS String</div>
+                            <img src="https://srinidevblog.in/assets/str-sample.png" class="card-img-top"
+                                style="height:auto; width: auto;object-fit:fill;" alt="string-js">
+                            <div class="card-body">
+                                <ul>
+                                    <li>
+                                        textual data is stored as strings
+                                    </li>
+                                    <li>
+                                        no separate type for a single character.
+                                    </li>
+                                    <li>
+                                        Strings are immutable but iterable
+                                    </li>
+                                    <li>
+                                        strings written using
+                                        <pre
+                                            class="d-inline text-danger bg-danger bg-opacity-25 px-1">'single-quoted'</pre>
+                                        ,
+                                        <pre
+                                            class="d-inline text-danger bg-danger bg-opacity-25 px-1">"double-quoted"</pre>
+                                        ,
+                                        <pre class="d-inline text-danger bg-danger bg-opacity-25 px-1">`backticks`</pre>
+                                        .
+                                    </li>
+                                    <li> Backticks, however, allow us to embed any expression into the string, by
+                                        wrapping it in
+                                        <pre class="d-inline text-danger bg-danger bg-opacity-25 px-1">${…}</pre>
+                                        also it will allow a string to span multiple lines
+                                        like
+                                        <pre class="">let greetGuest = `Hello Guests:
+                * John
+                * Pete
+                * Mary
+                `;
+                                        </pre>
+                                        if wish to do same line above using duble/single quotes we need to write like
+                                        <pre>
+    let greetGuest = "Hello Guests:\n * John\n * Pete\n * Mary";
+</pre>
+                                    </li>
+                                    <li style="list-style-type:none">
+                                        <table class="table table-sm">
+                                            <thead class="table-primary">
+                                                <tr>
+                                                    <td>Character</td>
+                                                    <td>Description </td>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="small">
+                                                <tr>
+                                                    <th>\n</th>
+                                                    <td>New line </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>\r</th>
+                                                    <td>\r only for windows, for non windows \n </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th>\',&nbsp;\"</th>
+                                                    <td>Quotes </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>\\</th>
+                                                    <td>Backslash </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>\t</th>
+                                                    <td>Tab </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </li>
+
+                                </ul>
+
+
+                            </div>
+
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                let str = "Hello World";
+                                for (let i = 0; i < str.length; i++) {
+                                    console.log(`String Position of ${str[i]} is ${i}`);
+                                }
+
+                                let str1 = "Hello\nWorld"; // two lines using a "newline symbol"
+
+                                // two lines using a normal newline and backticks
+                                let str2 = `Hello
+World`;
+                                console.log(str1) // alert(str1)
+                                console.log(str2) // alert(str2)
+                                for (let char of "Hello") {
+                                    console.log(char); // H,e,l,l,o (char becomes "H", then "e", then "l" etc)
+                                }
+                            </script>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="str-len">
+                        <div class="card">
+                            <div class="card-header">String Length</div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Return the length of the string</li>
+                                    <li>
+                                        <pre
+                                            class="d-inline text-danger bg-danger bg-opacity-25 px-1">string.length</pre>
+                                        is a numeric property
+
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                let str3 = `Hello`;
+                                console.log(str3.length)
+                            </script>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="str-access">
+                        <div class="card">
+                            <div class="card-header">String Accessing</div>
+                            <div class="card-body">
+                                <div class="card-text">To access position of string there are two ways</div>
+                                <ul>
+                                    <li>One Way : use index position
+                                        <pre class="d-inline fw-bold">[pos]</pre>
+                                        <pre class="d-inline text-danger bg-danger bg-opacity-25 px-1">string[pos]</pre>
+                                        .
+
+                                        This would return undefined if character is not available in specified position
+                                        in string
+                                    </li>
+                                    <li>Other Way : use .charAt( mention the position)
+                                        <pre
+                                            class="d-inline text-danger bg-danger bg-opacity-25 px-1">string.charAt(0)</pre>
+                                        .
+                                        This would return empty string such as
+                                        <pre class="d-inline text-danger bg-danger bg-opacity-25 px-1">''</pre>.
+
+                                        if character is not available in specified position in string
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                let str4 = `Hello`;
+                                console.log(str4.charAt(0))
+                                console.log(str4[0])
+                                console.log(str4.charAt(10))
+                                console.log(str4[10]) // undefined
+
+
+
+                            </script>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="str-case-change">
+                        <div class="card">
+                            <div class="card-header">String Case Change</div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Case can be changed to each character or to whole string</li>
+                                    <li>
+                                        <pre
+                                            class="d-inline text-danger bg-danger bg-opacity-25 px-1">toUpperCase()</pre>
+                                        to change all text to upper case
+
+                                    </li>
+                                    <li>
+                                        <pre
+                                            class="d-inline text-danger bg-danger bg-opacity-25 px-1">toLowerCase()</pre>
+                                        to change all text to lower case
+
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                let str5 = `Hello`;
+                                console.log(str5.toUpperCase())
+                                console.log(str5.toLowerCase())
+
+                            </script>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="str-operations">
+                        <div class="card">
+                            <div class="card-header">String Operations</div>
+                            <div class="card-body">
+                                <div data-id="dynamicStrContent"></div>
+                            </div>
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                const title = 'Jack and Jill Went Up the Hill';
+
+                                /**Starts With return boolean */
+                                console.log(title.startsWith('Jack')); /** one way */
+                                console.log(title.startsWith('Jill', 9)); /** other way second parameter that determines the begin position to start searching */
+
+                                /**Ends With return boolean */
+                                console.log(title.endsWith('Hill'));/** one way */
+                                console.log(title.endsWith('Up', 21));/** other way second parameter that determines length of the string to be searched*/
+
+                                /**includes return boolean */
+                                console.log(title.includes('Went'));/** one way */
+                                console.log(title.includes('Up', 5));/** other way second parameter that determines from start position of string to be searched*/
+
+                                /**indexOf return numbers */
+                                let text = 'JavaScript'
+                                let substrChar = 'a'
+                                let indexofVar = text.indexOf(substrChar);
+                                let indexofVarWithPos = text.indexOf(substrChar, 2);
+                                console.log(indexofVar, indexofVarWithPos);
+
+
+
+                                /**lastIndexOf return numbers */
+                                let lastIndexofVar = text.lastIndexOf(substrChar);
+                                let lastIndexofVarWithPos = text.lastIndexOf(substrChar, 2);
+                                console.log(lastIndexofVar, lastIndexofVarWithPos)
+
+
+
+                                /** substring */
+                                let forSubString = 'JavaScript Substring';
+                                let substring = forSubString.substring(0, 10);
+                                console.log(substring)
+                                let substring2 = forSubString.substring(11);
+                                console.log(substring2)
+
+
+
+                                /** substr */
+                                let forSubStr = 'JavaScript Substring';
+                                substring = forSubStr.substr(-6, 6);
+                                console.log(substring)
+                                substring2 = forSubStr.substr(11);
+                                console.log(substring2)
+
+
+
+                                /** slice */
+                                let forSlice = 'JavaScript Substring';
+                                substring = forSubStr.slice(0, 4);
+                                console.log(substring)
+                                substring2 = forSubStr.slice(11);
+                                console.log(substring2)
+
+
+
+
+                                /** replace & replaceAll **/
+                                let text2 = 'Happy Day'
+                                let replaced = text2.replace('p', 'd');
+                                console.log(replaced);
+                                let replacedAll = text2.replaceAll('p', 'd');
+                                console.log(replacedAll);
+
+                                /** padStart & padEnd **/
+                                let text3 = '123'
+                                let padStartVar = text3.padStart(6, '0');
+                                console.log(padStartVar);
+                                let padStartVar2 = text3.padEnd(6, '0');
+                                console.log(padStartVar2);
+
+
+                                /** trim & trimStart & trimEnd **/
+                                let startTrim = `     trim`;
+                                let endTrim = `trim          `;
+                                let fullTrim = `        trim          `;
+
+
+                              
+                                console.log(startTrim,startTrim.trimStart());
+                                console.log(endTrim,endTrim.trimEnd());
+                                console.log(fullTrim,fullTrim.trim());
+
+                            </script>
+
+                        </div>
+                    </section>
+                </div>
+                <div class="col-12 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            Personal Learning Notes
+                        </div>
+                        <div class="card-body">
+                            <div id="editor-container" style="height: auto;"></div>
+                        </div>
+                        <div class="card-footer text-end text-muted"><small>Updated on <span
+                                    id="timeString"></span></small></div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 overflow-auto">
+                    <section id="for-console" class="my-3 mx-auto">
+                        <div class="card">
+                            <div class="card-text text-start ms-3 text-muted">Only last run script can be viewed below
+                            </div>
+                            <div class="card-header bg-transparent border-0 d-flex justify-content-between">
+                                <div>
+                                    <a class="btn btn-outline-primary rounded-pill" data-bs-toggle="collapse"
+                                        href="#collapseExample" role="button" aria-expanded="false"
+                                        aria-controls="multiCollapseExample1"> <i class="fa fa-terminal me-2"
+                                            aria-hidden="true"></i> Toggle console </a>
+                                </div>
+                            </div>
+                            <div class="collapse-in" id="collapseExample">
+                                <div class="card-body" id="html_console"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="position-fixed bottom-0 end-0 p-3 text-danger" style="z-index: 11">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-danger text-white">
+
+                    <strong class="me-auto small">Error</strong>
+                    <button type="button" class="btn-close text-white" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+                </div>
+                <div class="toast-body bg-danger text-white" id="console_error">
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+
+
+<script>
+    function dynamicTabCode(index) {
+        return `<ul class="nav nav-tabs" role="tablist">
+   <li class="nav-item active">
+      <a class="nav-link" data-bs-toggle="tab" data-bs-target="#code-exe-${index}" type="button" role="tab">Executable Code</a>
+   </li>
+   <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" data-bs-target="#code-snippet-${index}" type="button" role="tab">Snippet code</a>
+   </li>
+</ul>
+<div class="tab-content">
+   <div id="code-exe-${index}" class="card active border-0 tab-pane mt-2">
+      <div class="card-body">
+         <div class="d-flex justify-content-between align-items-center p-2 bg-light">
+            <div>JS Code</div>
+            <div class="d-flex">
+               <div class="form-check form-switch align-self-center mx-2">
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                  <label class="form-check-label" for="flexSwitchCheckChecked">Readonly</label>
+               </div>
+               <div>
+                  <button type="button"
+                     class="btn btn-outline-primary rounded-pill run-code"> <i
+                     class="fa fa-play"></i> </button>
+               </div>
+            </div>
+         </div>
+         <div class="editor overflow-auto"></div>
+         <style>
+            .editor {
+            height: 250px;
+            width: 100%;
+            }
+         </style>
+      </div>
+   </div>
+   <div id="code-snippet-${index}" class="card border-0 tab-pane mt-2">
+      <div class="card-body">
+         <div class="d-flex justify-content-between align-items-center p-2 bg-light">
+            <div>
+               JS Code
+            </div>
+            <div class="">
+               <button type="button" class="btn btn-outline-primary code-coppy"><i
+                  class="fa fa-copy"></i></button>
+            </div>
+         </div>
+         <div class="code-slot shadow-sm rounded-3 p-3"></div>
+      </div>
+   </div>
+</div>`
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.15.6/min/vs/loader.js"></script>
+<script>
+    require.config({
+        paths: {
+            vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.15.6/min/vs/",
+        },
+    });
+    window.MonacoEnvironment = {
+        getWorkerUrl(workerId, label) {
+            return `data:text/javascript;charset=utf-8,${encodeURIComponent(`
+		self.MonacoEnvironment = {
+			baseUrl: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.15.6/min/'
+		};
+		importScripts('https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.15.6/min/vs/base/worker/workerMain.js');
+		`)}`;
+        },
+    };
+</script>
+<script>
+    var toast = new bootstrap.Toast(document.getElementById('liveToast'))
+    var monEditor = {};
+    var evt_collection = {}
+    let js_Sections = document.querySelectorAll("section.js-section");
+    let monacoEditorConfig = {
+
+        language: "javascript",
+        lineNumbers: "on",
+        roundedSelection: true,
+        automaticLayout: true,
+        scrollBeyondLastLine: true,
+        readOnly: true,
+        contextmenu: false,
+        fontFamily: 'Jetbrains Mono',
+        fontLigatures: true,
+        'fontWeight': 400,
+        'fontSize': '12',
+        theme: "vs-dark",
+        "autoIndent": true,
+        "formatOnPaste": true,
+        "formatOnType": true,
+        minimap: {
+            enabled: false
+        }
+    }
+    window.addEventListener("DOMContentLoaded", (event) => {
+        setTimeout(() => {
+
+            initAllEditors();
+
+        }, 2000);
+    });
+    window.addEventListener('resize', (event) => {
+        // make editor as small as possible
+        if (Object.keys(monEditor).length > 0) {
+            Object.keys(monEditor).map(i => monEditor[i].layout())
+        }
+    })
+
+    function initAllEditors() {
+        require(["vs/editor/editor.main"], function () {
+            js_Sections.forEach((jsContent, index, arr) => {
+                let tabOfCode = jsContent.querySelector('.tab-code')
+                if (tabOfCode) {
+                    tabOfCode.innerHTML = "";
+                    tabOfCode.insertAdjacentHTML('beforeend', dynamicTabCode(index));
+
+                    let container = jsContent.querySelector(".editor");
+                    let scripts = jsContent.querySelector(".js-code-block");
+                    let runCodeBlock = jsContent.querySelector(".run-code");
+                    let codeSlot = jsContent.querySelector(".code-slot");
+                    let codeCopy = jsContent.querySelector(".code-coppy");
+                    let switchBox = jsContent.querySelector("#flexSwitchCheckChecked");
+
+                    let scriptText = scripts ? trimScriptText(String(scripts.innerText)) : '';
+                    monacoEditorConfig.value = scriptText
+                    monEditor["editor_" + index] = monaco.editor.create(container, monacoEditorConfig);
+
+                    const returnOfString = (scripts) => scripts.outerHTML.replaceAll("<", "&lt;").replaceAll(">", "&gt;")
+                    codeSlot.insertAdjacentHTML('afterBegin', `<pre><code class="language-html">${returnOfString(scripts)}</code></pre>`);
+                    hljs.highlightElement(codeSlot);
+
+                    codeCopy.addEventListener('click', function (e) {
+                        copyStringToClipboard(scriptText)
+                    })
+                    runCodeBlock.addEventListener('click', function (e) {
+                        render("editor_" + index);
+                    })
+                    switchBox.addEventListener('click', function (e) {
+
+                        checkforReadOnly = e.target.checked ? e.target.checked : false;
+                        toggleEditor("editor_" + index, checkforReadOnly);
+                    })
+                }
+            });
+
+        });
+    }
+    var QuillToolbarOptions = [
+        //   ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+        ['blockquote', 'code-block'],
+
+        //   [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+        //   [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+        [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
+        //   [{ 'direction': 'rtl' }],                         // text direction
+
+        [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+        //   [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+        //   [{ 'font': [] }],
+        [{ 'align': [] }],
+
+        ['clean']                                         // remove formatting button
+    ];
+
+    var Delta = Quill.import('delta');
+    var quill = new Quill('#editor-container', {
+        modules: {
+            toolbar: QuillToolbarOptions
+        },
+        placeholder: 'Add Notes Here...',
+        theme: 'bubble'
+    });
+
+    // Store accumulated changes
+    var change = new Delta();
+    quill.on('text-change', function (delta) {
+        change = change.compose(delta);
+    });
+
+
+
+    var localData = localStorage.getItem('quillEditor') ? JSON.parse(localStorage.getItem('quillEditor')) : {};
+    var cacheLocalDataLength = Object.keys(localData).length
+    if (cacheLocalDataLength <= 0) {
+        localData.content = '';
+        localData.lastUpdated = new Date();
+    }
+    if (cacheLocalDataLength > 0) {
+        quill.root.innerHTML = localData.content || '';
+        document.getElementById('timeString').innerText = new Date(localData.lastUpdated).toLocaleString('en-GB')
+    }
+
+    // Save periodically
+    setInterval(function () {
+        if (change.length() > 0) {
+            change = new Delta();
+            var html = quill.root.innerHTML;
+            localData.content = html;
+            localData.lastUpdated = new Date();
+
+            localStorage.setItem('quillEditor', JSON.stringify(localData))
+            document.getElementById('timeString').innerText = new Date(localData.lastUpdated).toLocaleString('en-GB')
+
+        }
+    }, 5 * 1000);
+
+    // Check for unsaved data
+    window.onbeforeunload = function () {
+        if (change.length() > 0) {
+            return 'There are unsaved changes. Are you sure you want to leave?';
+        }
+    }
+</script>
+<script>
+    function render(indexStr) {
+        canRunToConsole = false;
+        try {
+
+            var F = new Function((monEditor[indexStr]).getModel().getValue());
+            console.clear();
+            F();
+            canRunToConsole = true;
+        } catch (e) {
+
+            var console_err_slot = document.querySelector("#console_error");
+            if (console_err_slot) console_err_slot.innerHTML = '';
+            console_err_slot.innerHTML = e;
+            if (toast) {
+                toast.hide();
+                toast.show();
+            }
+            canRunToConsole = false;
+
+        }
+        if (canRunToConsole) {
+            document.querySelector('#for-console').scrollIntoView({ behavior: 'smooth' });
+
+        }
+    }
+
+    function toggleEditor(indexStr, flag) {
+        monEditor[indexStr].updateOptions({ readOnly: flag })
+    }
+
+    function returnNumberOfLines(str) {
+        return str.split('\n').map(i => i.trim()).length
+    }
+    function trimScriptText(str) {
+
+        return str.split('\n').map(i => i.trim()).join('\n')
+    }
+    function copyStringToClipboard(string) {
+        function handler(event) {
+            event.clipboardData.setData('text/plain', string);
+            event.preventDefault();
+            document.removeEventListener('copy', handler, true);
+        }
+
+        document.addEventListener('copy', handler, true);
+        document.execCommand('copy');
+    }
+</script>
+<script>
+    var oldLog = window.console.log;
+    var oldErrorLog = window.console.error;
+
+    var console_slot = document.querySelector("#html_console");
+    window.console.log = function (...args) {
+        var strinigifiedResult = JSON.stringify(args.length > 1 ? args : args[0], null, 2);
+        var pre = document.createElement("pre");
+        pre.textContent = strinigifiedResult;
+        hljs.highlightElement(pre);
+
+        console_slot.appendChild(pre);
+        oldLog.apply(this, args);
+    };
+
+    window.console.clear = function (...args) {
+        console_slot.innerHTML = "";
+        oldLog.apply(this, args);
+    };
+</script>
+<style>
+    .card {
+        border-radius: 20px;
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        border: none;
+    }
+
+    .card-header {
+        border-top-left-radius: 20px !important;
+        border-top-right-radius: 20px !important;
+    }
+
+    .nav-tabs .nav-link {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+
+    }
+
+    .hljs {
+        font-family: 'JetBrains Mono', monospace !important;
+        font-size: 12px;
+        /* border-radius: 20px; */
+        padding: 10px;
+        margin: 0 !important;
+    }
+
+    .nav-tabs .nav-link:focus,
+    .nav-tabs .nav-link:hover {
+        border-color: #e9ecef #e9ecef #dee2e6;
+        isolation: isolate;
+        border-top: 5px solid #e9ecef;
+    }
+
+    .nav-tabs .nav-item.show .nav-link,
+    .nav-tabs .nav-link.active {
+        color: #495057;
+        background-color: #fff;
+        /* border-width: 5px; */
+        border-color: #e9ecef #dee2e6 #fff;
+        border-top: 5px solid #e9ecef;
+
+    }
+
+    .stuck {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        bottom: 10px;
+        overflow-y: scroll;
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css">
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/languages/javascript.min.js"></script>
+
+
+
+</html>

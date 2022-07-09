@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="cache-control" content="max-age=604800, must-revalidate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <link rel="https://raw.githubusercontent.com/googlearchive/code-prettify/master/styles/sunburst.css">
+    <!-- <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet"> -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+</head>
+
+<body>
+    <main>
+        <nav class="navbar navbar-light bg-light fixed-top start-0">
+            <div class="alert alert-warning w-100 mb-0 small">
+                <mark>Note :</mark> Certain piece of code may misbehave due to scoping and other executable order issue,
+                it can be treated as quick reference documents. If you wish to implement, kindly implement separately in
+                local script tag /external js.
+            </div>
+        </nav>
+        <div class="container" style="margin-top: 8rem;">
+            <div class="row">
+                <div class="col-12 col-sm-12 overflow-auto">
+                    <section class="my-3 mx-auto js-section" id="array">
+                        <div class="card-header">What is Array in JS?</div>
+                        <img src="https://srinidevblog.in/assets/array_declaration.png" style="object-fit:contain"
+                            class="card-img-top" style="height:100px;" alt="array_push_pop">
+                        <div class="card">
+
+                            <div class="card-body">
+                                <code class="hljs d-block my-1 p-5">
+                                    let array = [1,12,2.5,null,'John',true,100,{name:'XX'}];
+                                </code>
+                                <div class="card-text">
+
+                                    Collection of primitive and non-primitive data types inside a container
+                                </div>
+
+                            </div>
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                let array = [1, 12, 2.5, null, 'John', true, 100, { name: 'XX' }];
+                                console.log(array)
+                            </script>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="higher_order_function">
+                        <div class="card">
+                            <div class="card-header">What is Higher order function?</div>
+                            <div class="card-body">
+
+                                A higher-order function is a function that takes another function as arguments or
+                                returns the function as output.
+                            </div>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="paramVsArg">
+                        <div class="card">
+                            <div class="card-header">Parameter vs Arguments</div>
+                            <div class="card-body">
+                                <table class="table table-bordered table-sm">
+                                    <tr>
+                                        <td> Function
+                                            <pre
+                                                class="d-inline text-danger bg-danger bg-opacity-25 px-1">parameter</pre>
+                                            are the names of variables present in the function
+                                            definition.
+                                        </td>
+                                        <td> Function
+                                            <pre
+                                                class="d-inline text-danger bg-danger bg-opacity-25 px-1">arguments</pre>
+                                            are the real values that are passed to the function and received by them.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+
+                                            <code class="hljs d-block mb-3">
+                                                var foo = function( a, b, c ) {};
+                                            </code>
+
+                                            <code class="hljs d-block">
+
+                                                // a, b, and c are the parameters
+                                            </code>
+                                        </td>
+                                        <td>
+
+                                            <code class="hljs d-block mb-3">
+                                                foo( 1, 2, 3 );
+                                            </code>
+
+                                            <code class="hljs d-block">
+
+                                                // 1, 2, and 3 are the arguments
+                                            </code>
+                                        </td>
+                                    </tr>
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="hofVsCB">
+                        <div class="card">
+                            <div class="card-header">HOF vs CB</div>
+                            <div class="card-body">
+                                <table class="table table-bordered table-sm">
+                                    <tr>
+                                        <td> A higher-order function is a function that takes another function as
+                                            arguments or returns the function as output. </td>
+                                        <td> Call back function is a function that is passed to another function as an
+                                            argument, which is invoked inside the other function.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+
+                                            <code class="hljs d-block mb-3">
+                                                var numbers = [1, 2, 3, 4];
+                                            </code>
+
+                                            <code class="hljs d-block mb-3">
+
+                                                var doubles = numbers.map(function(number) {
+                                                    return number * 2;
+                                                });
+                                            </code>
+                                            <code class="hljs d-block mb-3">
+
+                                                console.log(doubles)
+                                            </code>
+
+                                        </td>
+                                        <td>
+
+                                            <code class="hljs d-block mb-3">
+                                                function OuterFunction(callback) {
+                                                    callback(); 
+                                                }
+                                                // 'Test' function will be invoked here
+                                            </code>
+                                            <code class="hljs d-block mb-3">
+
+                                                function Test() {
+                                                    // logic
+                                                }
+                                                </code>
+                                            <code class="hljs d-block mb-3">
+
+                                                OuterFunction(Test); // Here 'Test' is call back function
+                                            </code>
+
+
+                                        </td>
+
+                                    </tr>
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="arr_shift_pop_push_unshift">
+                        <div class="card">
+                            <div class="card-header">Array Insert/Delete</div>
+                            <img src="https://srinidevblog.in/assets/Mutate_Set/array_insert_delete_operation.png"
+                                class="card-img-top" style="height:380px;" alt="array_push_pop">
+                            <mark>Note : Temp mistake in img @ shift and unshift</mark>
+                            <div class="card-body">
+                                <ul>
+
+                                    <li>
+                                        it is Mutable
+                                    </li>
+                                    <li>
+                                        <pre class="d-inline text-danger bg-danger bg-opacity-25 px-1">shift</pre>
+                                        Extracts the first element of the array and returns it.
+                                    </li>
+                                    <li>
+                                        <pre class="d-inline text-danger bg-danger bg-opacity-25 px-1">unshift</pre>
+                                        Add the element to the beginning of the array
+                                    </li>
+                                    <li>
+                                        <pre class="d-inline text-danger bg-danger bg-opacity-25 px-1">push</pre>
+                                        Append the element to the end of the array.
+                                    </li>
+                                    <li>
+                                        <pre class="d-inline text-danger bg-danger bg-opacity-25 px-1">pop</pre>
+                                        Extracts the last element of the array and returns it.
+                                    </li>
+                                    <li>
+                                        <pre
+                                            class="d-inline text-danger bg-danger bg-opacity-25 px-1">Reason for Slow Performance in Shift</pre>
+                                        <ol>
+
+
+                                            <li>Remove the element with the index 0.</li>
+                                            <li>Move all elements to the left, renumber them from the index 1 to 0, from
+                                                2 to 1 and so on.</li>
+                                            <li>Update the length property.</li>
+                                        </ol>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                let arr = ['0️⃣', '1️⃣', '2️⃣', '3️⃣']
+                                arr.unshift('4️⃣');
+
+                                console.log('on unshift', JSON.parse(JSON.stringify(arr)));
+                                arr.shift();
+                                console.log('on shift', JSON.parse(JSON.stringify(arr)));
+
+                                arr.push('4️⃣');
+                                console.log('on push', JSON.parse(JSON.stringify(arr)));
+
+                                arr.pop();
+                                console.log('on pop', JSON.parse(JSON.stringify(arr)));
+
+                            </script>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="arr_map">
+                        <div class="card">
+                            <div class="card-header">Map</div>
+
+
+                            <img src="https://srinidevblog.in/assets/higher_order/map.png"
+                                class="card-img-top mx-auto d-block" style="height:250px; width:500px" alt="array map">
+
+
+                            <div class="card-body">
+                                <ol>
+                                    <li>
+                                        it is immutable
+                                    </li>
+                                    <li>
+                                        creates a new array from calling a function for every array element.
+                                    </li>
+                                    <li>
+                                        calls a function once for each element in an array.
+                                    </li>
+                                    <li>
+                                        if element was empty it won't execute
+                                    </li>
+
+
+                                </ol>
+
+
+                            </div>
+
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                let arr1 = ['0️⃣', '1️⃣', '2️⃣', '3️⃣']
+
+
+
+                                console.log('original array', JSON.parse(JSON.stringify(arr)));
+
+                                newArr1 = arr1.map((i) => '4️⃣')
+
+                                console.log('new array', JSON.parse(JSON.stringify(newArr1)));
+
+
+                            </script>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="arr_filter">
+                        <div class="card">
+                            <div class="card-header">Filter</div>
+
+
+                            <img src="https://srinidevblog.in/assets/higher_order/filter.png"
+                                class="card-img-top mx-auto d-block" style="height:250px; width:500px"
+                                alt="array filter">
+
+
+                            <div class="card-body">
+                                <ol>
+                                    <li>
+                                        it is immutable
+                                    </li>
+                                    <li>
+                                        creates a new array filled with elements that pass a test provided by a
+                                        function. </li>
+                                    </li>
+                                    <li>
+                                        if element was empty it won't execute
+                                    </li>
+                                    <li>
+                                        If no elements pass the test it returns an empty array.
+                                    </li>
+
+                                </ol>
+
+
+                            </div>
+
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                let arr2 = ['0️⃣', '1️⃣', '2️⃣', '3️⃣']
+
+
+
+                                console.log('original array', JSON.parse(JSON.stringify(arr2)));
+
+                                newArr2 = arr2.filter((i) => i === '2️⃣' && i)
+
+                                console.log('new array', JSON.parse(JSON.stringify(newArr2)));
+
+
+                            </script>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="arr_some">
+                        <div class="card">
+                            <div class="card-header">Some</div>
+
+
+                            <img src="https://srinidevblog.in/assets/higher_order/some.png"
+                                class="card-img-top mx-auto d-block" style="height:250px; width:500px" alt="array some">
+
+
+                            <div class="card-body">
+                                <ol>
+                                    <li>
+                                        it is immutable
+                                    </li>
+                                    <li>
+                                        method checks if any array elements pass a test (provided as a callback
+                                        function). </li>
+                                    </li>
+                                    <li>
+                                        method returns true (and stops) if the function returns true for one of the
+                                        array elements.
+                                    </li>
+                                    <li>
+                                        method returns false if the function returns false for all of the array
+                                        elements.
+                                    </li>
+                                    <li>
+                                        if element was empty it won't execute
+                                    </li>
+
+
+                                </ol>
+
+
+                            </div>
+
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                let arr4 = ['0️⃣', '1️⃣', '2️⃣', '3️⃣']
+
+
+
+                                console.log('original array', JSON.parse(JSON.stringify(arr4)));
+
+                                newArr4 = arr3.some((i) => i === '2️⃣')
+
+                                console.log('new array', JSON.parse(JSON.stringify(newArr4)));
+
+
+                            </script>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="arr_every">
+                        <div class="card">
+                            <div class="card-header">Every</div>
+
+
+                            <img src="https://srinidevblog.in/assets/higher_order/every.png"
+                                class="card-img-top mx-auto d-block" style="height:250px; width:500px" alt="array some">
+
+
+                            <div class="card-body">
+                                <ol>
+                                    <li>
+                                        it is immutable
+                                    </li>
+                                    <li>
+                                        method checks if any array elements pass a test (provided as a callback
+                                        function). </li>
+                                    </li>
+                                    <li>
+                                        method returns true if the function returns true for all elements.
+                                    </li>
+                                    <li>
+                                        method returns false if the function returns false for one element.
+                                    </li>
+                                    <li>
+                                        if element was empty it won't execute
+                                    </li>
+
+
+                                </ol>
+
+
+                            </div>
+
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                let arr5 = ['0️⃣', '1️⃣', '2️⃣', '3️⃣']
+
+
+
+                                console.log('original array', JSON.parse(JSON.stringify(arr5)));
+
+                                newArr5 = arr5.every((i) => i === '2️⃣' && i)
+
+                                console.log('new array', JSON.parse(JSON.stringify(newArr5)));
+
+
+                            </script>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="arr_find">
+                        <div class="card">
+                            <div class="card-header">Find</div>
+
+
+                            <img src="https://srinidevblog.in/assets/higher_order/Find.png"
+                                class="card-img-top mx-auto d-block" style="height:250px; width:500px"
+                                alt="array arr_find">
+
+
+                            <div class="card-body">
+                                <ol>
+                                    <li>
+                                        it is immutable
+                                    </li>
+                                    <li>
+                                        method returns the value of the first element that passes a test.
+                                    </li>
+                                    <li>
+                                        method returns undefined if no elements are found.
+                                    </li>
+
+                                    <li>
+                                        if element was empty it won't execute
+                                    </li>
+
+
+                                </ol>
+
+
+                            </div>
+
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                let arr6 = ['0️⃣', '1️⃣', '2️⃣', '3️⃣']
+
+
+
+                                console.log('original array', JSON.parse(JSON.stringify(arr6)));
+
+                                newArr6 = arr6.find((i) => i === '2️⃣' && i)
+
+                                console.log('new array', JSON.parse(JSON.stringify(newArr6)));
+
+
+                            </script>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="arr_includes">
+                        <div class="card">
+                            <div class="card-header">Includes</div>
+
+
+                            <img src="https://srinidevblog.in/assets/higher_order/includes.png"
+                                class="card-img-top mx-auto d-block" style="height:250px; width:500px"
+                                alt="array includes">
+
+
+                            <div class="card-body">
+                                <ol>
+
+                                    <li>
+                                        method returns true if an array contains a specified value
+                                    </li>
+                                    <li>
+                                        method returns false if the value is not found.
+                                    </li>
+
+                                    <li>
+                                        method is case sensitive.
+                                    </li>
+
+
+                                </ol>
+
+
+                            </div>
+
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                let arr7 = ['0️⃣', '1️⃣', '2️⃣', '3️⃣']
+
+
+
+                                console.log('original array', JSON.parse(JSON.stringify(arr7)));
+
+                                newArr7 = arr7.includes('2️⃣')
+
+                                console.log(JSON.parse(JSON.stringify(newArr7)));
+
+
+                            </script>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="arr_findIndex">
+                        <div class="card">
+                            <div class="card-header">Find Index</div>
+
+
+                            <img src="https://srinidevblog.in/assets/higher_order/Findindex.png"
+                                class="card-img-top mx-auto d-block" style="height:250px; width:500px"
+                                alt="array find index">
+
+
+                            <div class="card-body">
+                                <ol>
+
+                                    <li>
+                                        it is immutable
+                                    </li>
+
+                                    <li>
+                                        method returns the index (position) of the first element that passes a test.
+                                    </li>
+                                    <li>
+                                        method returns -1 if no match is found.
+                                    </li>
+
+                                    <li>
+                                        method does not execute the function for empty array elements.
+                                    </li>
+
+                                </ol>
+
+
+                            </div>
+
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                let arr8 = ['0️⃣', '1️⃣', '2️⃣', '3️⃣']
+
+
+
+                                console.log('original array', JSON.parse(JSON.stringify(arr8)));
+
+                                newArr8 = arr8.findIndex(i => i === '2️⃣')
+
+                                console.log(JSON.parse(JSON.stringify(newArr8)));
+
+
+                            </script>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="arr_lastIndexOfIndex">
+                        <div class="card">
+                            <div class="card-header">Last Index</div>
+
+
+                            <img src="https://srinidevblog.in/assets/higher_order/LastIndexOf.png"
+                                class="card-img-top mx-auto d-block" style="height:250px; width:500px"
+                                alt="array find index">
+
+
+                            <div class="card-body">
+                                <ol>
+
+                                    <li>
+                                        method returns the index (position) of the first element that passes a test.
+                                    </li>
+                                    <li>
+                                        method returns -1 if no match is found.
+                                    </li>
+
+                                    <li>
+                                        By defalt the search starts at the last element and ends at the first (left to
+                                        right)
+                                    </li>
+
+                                </ol>
+
+
+                            </div>
+
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                let arr9 = ['0️⃣', '1️⃣', '2️⃣', '3️⃣']
+
+
+
+                                console.log('original array', JSON.parse(JSON.stringify(arr9)));
+
+                                newArr9 = arr9.lastIndexOf('2️⃣')
+
+                                console.log(JSON.parse(JSON.stringify(newArr9)));
+
+
+                            </script>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="arr_indexOf">
+                        <div class="card">
+                            <div class="card-header">Index Of</div>
+
+
+                            <img src="https://srinidevblog.in/assets/higher_order/indexOf.png"
+                                class="card-img-top mx-auto d-block" style="height:250px; width:500px"
+                                alt="array find index">
+
+
+                            <div class="card-body">
+                                <ol>
+
+
+                                    <li>
+                                        method returns the index (position) of the first element that passes a test.
+                                    </li>
+                                    <li>
+                                        method returns -1 if no match is found.
+                                    </li>
+
+                                    <li>
+                                        By defalt the search starts at the last element and ends at the first (right to
+                                        left)
+                                    </li>
+
+                                </ol>
+
+
+                            </div>
+
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                let arr10 = ['0️⃣', '1️⃣', '2️⃣', '3️⃣']
+
+
+
+                                console.log('original array', JSON.parse(JSON.stringify(arr10)));
+
+                                newArr10 = arr10.indexOf('2️⃣')
+
+                                console.log(JSON.parse(JSON.stringify(newArr10)));
+
+
+                            </script>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="arr_concat">
+                        <div class="card">
+                            <div class="card-header">Concat</div>
+
+
+                            <img src="https://srinidevblog.in/assets/higher_order/concat.png"
+                                class="card-img-top mx-auto d-block" style="height:250px; width:500px"
+                                alt="array find index">
+
+
+                            <div class="card-body">
+                                <ol>
+                                    <li>
+                                        it is immutable
+                                    </li>
+
+                                    <li>
+                                        method concatenates (joins) two or more arrays
+                                    </li>
+                                    <li>
+                                        method returns a new array, containing the joined arrays.
+                                    </li>
+
+
+
+                                </ol>
+
+
+                            </div>
+
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                let arr11 = ['0️⃣', '1️⃣',]
+                                let arr12 = ['2️⃣', '3️⃣']
+
+
+
+                                console.log('original array', JSON.parse(JSON.stringify(arr11)), JSON.parse(JSON.stringify(arr12)));
+
+                                newArr12 = arr11.concat(arr12)
+
+                                console.log('new array', JSON.parse(JSON.stringify(newArr12)));
+
+
+                            </script>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="arr_join">
+                        <div class="card">
+                            <div class="card-header">Join</div>
+
+
+
+
+                            <div class="card-body">
+                                <ol>
+                                    <li>
+                                        joins array to string
+                                    </li>
+
+
+                                </ol>
+
+
+                            </div>
+
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                let arr13 = ['0️⃣', '1️⃣', '2️⃣', '3️⃣']
+
+
+
+                                console.log('original array', JSON.parse(JSON.stringify(arr13)));
+
+                                newArr13 = arr13.join(',')
+
+                                console.log('new string', JSON.parse(JSON.stringify(newArr13)));
+
+
+                            </script>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="arr_splice">
+                        <div class="card">
+                            <div class="card-header">Splice</div>
+
+                            <img class="card-img-top mx-auto d-block " height="300" width="100"
+
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVcAAACCCAYAAADytYswAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAA/9SURBVHhe7Z0JtJRlGcc/lEUQTBJQIpICIigIKoNogSKKCivaKA4leYpss4XTQpzKgoromO1BdIjKdkqSCorKIJKlIqPFrKQFopRYQkXRlJ7f10xM15nLnWFelm9+v3P+53IH7sxc7vP93+d53uf9bqddu3YdzkREpKmcVvooIiJNRHMVEUmA5ioikgDNVUQkAZqriEgCNFcRkQRoriIiCdBcRUQSoLmKiCRAcxURSYDmKiKSAM1VRCQBmquISAI0VxGRBGiuIiIJ0FxFRBKguYqIJEBzFRFJgOYqIpIAzVVEJAGaq4hIAjRXEZEEaK4iIgnQXEVEEqC5iogkQHMVEUmA5ioikgDNVUQkAZqriEgCNFcRkQRoriIiCdBcRUQSoLmKiCRAcxURSYDmKiKSAM1VRCQBmquISAI0VxGRBGiuIiIJ0FxFRBKguYqIJEBzFRFJgOYqIpIAzVVEJAGaq4hIAjRXEZEEaK4iIgnQXEVEEqC5iogkQHMVEUmA5ioikgDNVUQkAZqriEgCNFcRkQRoriIiCdBcRUQSoLmKiCRAcxURSYDmKiKSAM1VRCQBnXbt2nW49GcRqeC2227Lbr311tJnaejZs2fWpUuXbN++faVH0tCtW7fsrLPOyvbs2ZPdc889pUebz2mnnZadc845+cdWR3MVqcGSJUuyxYsXlz5LwyWXXJKNGDEiu/TSS0uPpGHChAnZvHnzspkzZ2Y333xz6dHm069fv+zKK6/M+vbtW3qkddFcRWpw+eWX50rJnDlzslGjRmUXXXRR6ZE0TJ48OVu0aFE2ZcqU7Kabbio92nzOPffcbM2aNfnHVueUM9eNGzdm1157bemzNIwfPz4Pjquuuqr0SBoGDx6cBz0rfcryk9KTjOXMM88sPSId4USaa5fQ2aEBodN5oAp3hWgm7Mg/a5+Ommuf0CNCvO59Qz1CFPg0EsqvtS30p1A1NNcjnHLmajZRPwZ8Y5zIWMNYx4SeHurOA1W4M/S30C9CfwhR7B8KVeNosdYt9IDQY0PPCg0N3S90RghzxeD5qutD3ynphlBbjLUjtEzXmUyAIEX8uRE6hTqHeA5W9Go6luevBa95VuicECHbv0L9QlyIXUNSHPh5XxB6WeiVoZeHXlrSxaXPXxtaEPp06Pmh9rLcozEwxPPyfBeGzg+RGf8lhHH/K3Sf0MTQ60KzQ7xHrgmpTsuY68NDzwhNCY0MNWKArOIPChF8z6khXoPXaiaDQm8ILQ19N7Qx9LPQptDXQ+8IPTokxeS20K9Cq0NrQj8K/Tb0jxDZ6/1DbwqR5bLgNsLMEPHLNhTl/1dDGPYTSx/ZbvtCCLNlgZ8a4jV7haQ6LWOuBMibQwTEq0M9Q/XCyv2YEIHG81TT20IfCC0JTQ71DjUKXzs99J7Qi0NPCD0kVO6FcVGNDj03NCfEBSLFg27890LEAZkliylZ62tCnwrdEaKqGRUiJuqBdgDZ6ONCZK+7QytDi0NbQxj4jaG1oY+EvhHCYMmSiW9aCTyH3JvCmyvlMuXV2BCN+keFMCmy13oNludi1X5oaFgIkytDJkyAPzDE62F4rwiRUWLKjUDW8KIQQXxe6I8hslcusitCXwyR0WC0jw9hxE8LkWFLcaA83xmit4qoWjaEMNwfhH4fYuOEHmllTHYEYoVqbkiI1+H5Pxv6Zai8xcrjmC7ZMhntNaFdoT0hvr7RVkTRKby58sOnhGFVptl/e4jSZ1KIfmWjEHiU5ctDBOOVoa+EVoUITIyb18XIWeXrgWDla9hYIKPgc0z0c6H3l4S5IvptPw1xcbGAzAqx42vAFx9iGYND7ObT/6y3B0rCMC6EKWOgZKsYN+2GamDszNB8KfS1EK99d0juTaHNlUDD5CjlCZ6/hlh9MdynhjCwRhvy9MFYwTG4D4beG6I0p2XwidDeEBtRZLhkFPXA+6N/9sgQm1WUYfS7MFcyGLglxIWwLPTl0G9CDFqVS8OilGqHDh3K7rzzzuzw4dYdx+YiZaOUWCiLlhGLKD/rwSEMjjGpf4bqgUWY56D64WvL8dUeZMzvDJFYMJJVa0Kh1Sm0uVKO0wqgjMewNocIDEp4epeU8I2W7LVgV5UyjRWe1Z8Lod72A+/1KSFaEIzXrA8RyBh6NVaE6IWRwdIbowdXFDZt2pRt3bo1u+UWlpPWhPhhsX13haheqJZY2NnEYnFdF6o1f1oLkgviDSMgC6Xcl+ZQaHOl/KcXSXAyD3hdSX8PkQlQRtNraibkV5RaBHw5YA+E6oGMlzlD3jfZBBcMbYhaudvBEJsQbwl9MrQ9VJRs4u67787Wrl2bz5tyeOSOO4q0dHQMKhJmXqdViJYT5TzVFy0BeqW/CzVyh4JyO4E2Q+suYc2n0OZK2YS5UiLTDmDouXzChDKKdgEZbCOw2lOCVwb8C0LM/7GzT48XE8fMMfZ64IdCxotJY64d+XpaHmTmDHlj5kXpgw0aNCi/0cj69euz5cuXZ8uWLcs2bNiQD8JjvK0AFRBxW04O+BlTviMG+6nERoSeHKIN1SjEnb365lFYc6XcJyulJQCUzAxD07SnfGKVfnCIv2/kFhNklRNCjMSURb+VcS/MlQFrNrZ43XrNFbhg+OFglLznkwnMbv/+/dnevXuTq1evXtn555+fnX766dnq1avzm6lwXHjVqlV5JnvDDTfkd3q66y72tIsJMUDMfjxEP58xKXrt9OC/GWJUiiyWAwb1zjtTDVEV/TtETLOoHw32EJi6oeVWpP5+symsuZKRkrVSUrG5xOA9o0z0MH8YolwnM2ROlAy2XggoZvwo1xCbTzwXgUdZT7CyEbW/9OdGIWs52QphjGzLli15Bpla3EuCDJX7MPBx9+7d2dVXX50tWLAgmzt3brZ06dJs3bp12fbt27MDBw4U0mT5jij5OUDAQQL66xjsotD7QrSCMEgOuNQ7d0ps/jlEP59Kj69vL3slthkNZN52XuhJoXrHv1qFwt5bYEbo9aGHhb4felfo5yF6S2SqDPljvpgsGwPzQ2Vqnfcm8F4YmhsiKMkmtoR4Tk6qsIoTaPTBMFoC9ichLgQyjLbUOu9Nv5YNMYya0a6PhdiIaxTOeTfzvDcGN3369KT3Q6iETJmJgdtvp974L506dco6d+6cde3aNVf//v3z/88LL7wwv4VfMziR9xaojDUyVzawyFrbghFygu/HIWahGZP6aIhTXJXUijUqvLeHOGTDnzFvDsPQ0qrWdKHtwHXFuyVx4EDDt0P8e2h2rJ3KFNJcGVMpl+mUOWSr5fPRQMbKIQKG/gkgbkLBqS36m2wOdCTgyRQwzc+HMFdWdMZZKOc5l/3MEAGLwZJdfCjUlloBz/ztt0IsDCwIHBygBGwPFgpmatnI4mvozZU3N5od8AcPHsxWrlyZ30z6eEB7YNu2bdk11zD89l+4wXSfPn2ykSNH5ho2bFie3Q4YMCC/KXQzOBXMlSx1eAhTxFw5WMJ4IItzJbVijWuByo3kgpYCJ7K4HjhpiHmWocQls+VUGHHNpA2VIEkMexnlDVTN9QiFNFfu7EMQcFaab44d0GrfJC0DgpMNLk49EVTkRsca8GQABCyGiNFjjozMEIyV1Ap4st8Phyi/eD8rQrw/Fodq3wdmzI08OP7K90qZSAmZKpsgk8TwjseGEvOtbGatWLEi77H26NEjN9Lhw4dnQ4cOzcWmF9/bGWeckWe0zeJkMVemQYgl4qASNlWpkui3coMXDJCsFXNtezvsWrHG/xbxipk+L0T1xd/S02XDDLMlpohjqjEOtrCXwb/hvhbluCyjuR6hkD1Xjp+ymtOvZFVlTIlje23FED7ZHSs+c4QEazMgqyVTpnVARov5cRF0FLIATslwgRCiGDUnytq+Py4MRspYTDjJxfgW3wsZeMo+Lb/Cg6yRCyi1yFB37NiR7dy5MzfUSZMmZTNmzMhmz56dzZo1K5s4cWJurt27d2+qsZ5MUBGVN6wqhaFyxJoNVGKDiRhO8rU11vZgsSZDJfOlfcaCTMxxoyDaA1R0TMC8KsTdudgE5vk5dss1hPFLdQpnrpTlrLCULay6HNF7Y4hMtq0+E8IEaQ9gYKzOHR1F4TKmpCLwK8WOK8HJhhrGSm7HhhrvpaNgjPSxeG+0KdiVZfOAkziUZmQa9HjJcOkuviTE+8fUOcDAsdxG5h1PRq6//vrcWAcOHJgb6sKFC/N+75AhQ3LjLTL87FmgqbBYQDG5SnHfCX7uVF+YIpkk0ymNQMOFCovsmIyVTTR6/7SbyFbHh4h3Jl/YP+CGMbQeijujcewUyly51OilYqzlgwPsrB7ZBvl/6EsyxsLXkfFRhjGf2hHKfdvK2w0ijO6tIY7DYoKYHIbH63QUDJmLhU2sX4fISsjEWSgoDzFaLi4+ckFwgxf+DVk69xrAZIsC/V2y1fnz52dTp07NR7Na4ZffYVrEDjv5HCKpJuKXGKHvf3GofBy1URgd5PQX87Icb+VYNRktwlC52xuGzuYw/1bap1BRSonMvVYpwQlMMj+CrVZnkL+njOLIH1/LhhCZYUdgo4wjquVbDZZFRvzsEH0pMg8Ck2yi3nEs3jPZK2ZJuUamzKJBplI+rMCdt8iQybY5IovRMmZWpLPeo0ePzsaNG/e/0r9Vfqso1Q7GSXlO6V9NVGSYIdMkxBjtoHrjrBLaaPRPGSFk6oBNWHqqiP0F7m/BMVvaCGasR6dQkUp5hEEyakXmR8ZI1lprx45GPf+GGUKyV05c0VMi46wGZsn+OEHMhhavR+lUKVoDBCjHETE7ApJeWCNQnnGBcfEsDGG2vFeen9YB74ORG/6eAXNupE0/jPdZFPhtovR3GbdqJVggOZVF752fcTXxm+TYN2j2qTyeh6oPIy3f5pBMlSy6VhUo96ZQ0wL0TDEhep6YEGZzZHinOpTb3CGLYWig7L5gzpzsvCo7uDw//U/uf0mmWw0Mm6yjfBKMrLhWJllrB7caGDlZa/meA0CWQmbOsdf2TnGxMeQObv0wbpb6l1ROmzYtz8qvuII9/nSMGTMm3wC87LLLsn370nXke/funb/G2Wd35KxXsfEXFFah1nhMs6nHXI8FzVXk+NMaDSwRkePMKZe5cob8xhvr2XuvH076sCt93XXsx6ajb9+++VHNzZs3J72VHsP1Y8eObbm+pciJ5JQzVxGRUwHbAiIiCdBcRUQSoLmKiCRAcxURSYDmKiKSAM1VRCQBmquISAI0VxGRBGiuIiIJ0FxFRBKguYqIJEBzFRFJgOYqIpIAzVVEJAGaq4hIAjRXEZEEaK4iIgnQXEVEEqC5iogkQHMVEUmA5ioikgDNVUQkAZqriEgCNFcRkQRoriIiCdBcRUQSoLmKiCRAcxURSYDmKiKSAM1VRCQBmquISAI0VxGRBGiuIiIJ0FxFRBKguYqIJEBzFRFJgOYqIpIAzVVEJAGaq4hIAjRXEZGmk2X/AR44v+CL1okuAAAAAElFTkSuQmCC" />
+
+
+                            <div class="card-body">
+                                <ol>
+                                    <li>
+                                        method adds and/or removes array elements.
+                                    </li>
+                                    <li>
+                                        method overwrites the original array.
+                                    </li>
+                                    <li>
+                                        It is Mutable
+                                    </li>
+
+                                </ol>
+
+
+                            </div>
+
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                let arr14 = ['0️⃣', '1️⃣', '2️⃣', '3️⃣']
+
+
+
+                                console.log('original array', JSON.parse(JSON.stringify(arr14)));
+
+                                arr14.splice(2, 0, '9️⃣', '4️⃣')
+
+                                console.log("original array modified by adding from 2 position   arr14.splice(2,0,'9️⃣','4️⃣')", JSON.parse(JSON.stringify(arr14)));
+
+                                arr14.splice(2, 3)
+                                console.log("original array modified by deleting item from 0 position and remove 3 item arr14.splice(2,3)", JSON.parse(JSON.stringify(arr14)));
+
+
+
+                            </script>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="arr_slice">
+                        <div class="card">
+                            <div class="card-header">Slice</div>
+                            <img class="card-img-top mx-auto d-block " height="300" width="100"
+                                src="data:image/png;base64,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">
+
+
+                            <div class="card-body">
+                                <ol>
+                                    <li>
+                                        returns selected elements in an array, as a new array.
+                                    </li>
+                                    <li>
+                                        method does not overwrites the original array.
+                                    </li>
+                                    <li>
+                                        It is immutable
+                                    </li>
+
+                                </ol>
+
+
+                            </div>
+
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                let arr15 = ['0️⃣', '1️⃣', '2️⃣', '3️⃣']
+
+
+
+                                console.log('original array', JSON.parse(JSON.stringify(arr15)));
+
+
+                                newArr15 = arr15.slice(0, 2)
+                                newArr16 = arr15.slice(-3, -1)
+
+                                console.log(newArr15, newArr16)
+
+
+
+                            </script>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-12 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            Personal Learning Notes
+                        </div>
+                        <div class="card-body">
+                            <div id="editor-container" style="height: auto;"></div>
+                        </div>
+                        <div class="card-footer text-end text-muted"><small>Updated on <span
+                                    id="timeString"></span></small></div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 overflow-auto">
+                    <section id="for-console" class="my-3 mx-auto">
+                        <div class="card">
+                            <div class="card-text text-start ms-3 text-muted">Only last run script can be viewed below
+                            </div>
+                            <div class="card-header bg-transparent border-0 d-flex justify-content-between">
+                                <div>
+                                    <a class="btn btn-outline-primary rounded-pill" data-bs-toggle="collapse"
+                                        href="#collapseExample" role="button" aria-expanded="false"
+                                        aria-controls="multiCollapseExample1"> <i class="fa fa-terminal me-2"
+                                            aria-hidden="true"></i> Toggle console </a>
+                                </div>
+                            </div>
+                            <div class="collapse-in" id="collapseExample">
+                                <div class="card-body" id="html_console"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="position-fixed bottom-0 end-0 p-3 text-danger" style="z-index: 11">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-danger text-white">
+
+                    <strong class="me-auto small">Error</strong>
+                    <button type="button" class="btn-close text-white" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+                </div>
+                <div class="toast-body bg-danger text-white" id="console_error">
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+
+
+<script>
+    function dynamicTabCode(index) {
+        return `<ul class="nav nav-tabs" role="tablist">
+   <li class="nav-item active">
+      <a class="nav-link" data-bs-toggle="tab" data-bs-target="#code-exe-${index}" type="button" role="tab">Executable Code</a>
+   </li>
+   <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" data-bs-target="#code-snippet-${index}" type="button" role="tab">Snippet code</a>
+   </li>
+</ul>
+<div class="tab-content">
+   <div id="code-exe-${index}" class="card active border-0 tab-pane mt-2">
+      <div class="card-body">
+         <div class="d-flex justify-content-between align-items-center p-2 bg-light">
+            <div>JS Code</div>
+            <div class="d-flex">
+               <div class="form-check form-switch align-self-center mx-2">
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                  <label class="form-check-label" for="flexSwitchCheckChecked">Readonly</label>
+               </div>
+               <div>
+                  <button type="button"
+                     class="btn btn-outline-primary rounded-pill run-code"> <i
+                     class="fa fa-play"></i> </button>
+               </div>
+            </div>
+         </div>
+         <div class="editor overflow-auto"></div>
+         <style>
+            .editor {
+            height: 200px;
+            width: 100%;
+            }
+         </style>
+      </div>
+   </div>
+   <div id="code-snippet-${index}" class="card border-0 tab-pane mt-2">
+      <div class="card-body">
+         <div class="d-flex justify-content-between align-items-center p-2 bg-light">
+            <div>
+               JS Code
+            </div>
+            <div class="">
+               <button type="button" class="btn btn-outline-primary code-coppy"><i
+                  class="fa fa-copy"></i></button>
+            </div>
+         </div>
+         <div class="code-slot shadow-sm rounded-3 p-3"></div>
+      </div>
+   </div>
+</div>`
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.15.6/min/vs/loader.js"></script>
+<script>
+    require.config({
+        paths: {
+            vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.15.6/min/vs/",
+        },
+    });
+    window.MonacoEnvironment = {
+        getWorkerUrl(workerId, label) {
+            return `data:text/javascript;charset=utf-8,${encodeURIComponent(`
+		self.MonacoEnvironment = {
+			baseUrl: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.15.6/min/'
+		};
+		importScripts('https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.15.6/min/vs/base/worker/workerMain.js');
+		`)}`;
+        },
+    };
+</script>
+<script>
+    var toast = new bootstrap.Toast(document.getElementById('liveToast'))
+    var monEditor = {};
+    var evt_collection = {}
+    let js_Sections = document.querySelectorAll("section.js-section");
+    let monacoEditorConfig = {
+
+        language: "javascript",
+        lineNumbers: "on",
+        roundedSelection: true,
+        automaticLayout: true,
+        scrollBeyondLastLine: true,
+        readOnly: true,
+        contextmenu: false,
+        fontFamily: 'Jetbrains Mono',
+        fontLigatures: true,
+        'fontWeight': 400,
+        'fontSize': '12',
+        theme: "vs-dark",
+        "autoIndent": true,
+        "formatOnPaste": true,
+        "formatOnType": true,
+        minimap: {
+            enabled: false
+        }
+    }
+    window.addEventListener("DOMContentLoaded", (event) => {
+        setTimeout(() => {
+
+            initAllEditors();
+
+        }, 2000);
+    });
+    window.addEventListener('resize', (event) => {
+        // make editor as small as possible
+        if (Object.keys(monEditor).length > 0) {
+            Object.keys(monEditor).map(i => monEditor[i].layout())
+        }
+    })
+
+    function initAllEditors() {
+        require(["vs/editor/editor.main"], function () {
+            js_Sections.forEach((jsContent, index, arr) => {
+                let tabOfCode = jsContent.querySelector('.tab-code')
+                if (tabOfCode) {
+                    tabOfCode.innerHTML = "";
+                    tabOfCode.insertAdjacentHTML('beforeend', dynamicTabCode(index));
+
+                    let container = jsContent.querySelector(".editor");
+                    let scripts = jsContent.querySelector(".js-code-block");
+                    let runCodeBlock = jsContent.querySelector(".run-code");
+                    let codeSlot = jsContent.querySelector(".code-slot");
+                    let codeCopy = jsContent.querySelector(".code-coppy");
+                    let switchBox = jsContent.querySelector("#flexSwitchCheckChecked");
+
+                    let scriptText = scripts ? trimScriptText(String(scripts.innerText)) : '';
+                    monacoEditorConfig.value = scriptText
+                    monEditor["editor_" + index] = monaco.editor.create(container, monacoEditorConfig);
+
+                    const returnOfString = (scripts) => scripts.outerHTML.replaceAll("<", "&lt;").replaceAll(">", "&gt;")
+                    codeSlot.insertAdjacentHTML('afterBegin', `<pre><code class="language-html">${returnOfString(scripts)}</code></pre>`);
+                    hljs.highlightElement(codeSlot);
+
+                    codeCopy.addEventListener('click', function (e) {
+                        copyStringToClipboard(scriptText)
+                    })
+                    runCodeBlock.addEventListener('click', function (e) {
+                        render("editor_" + index);
+                    })
+                    switchBox.addEventListener('click', function (e) {
+
+                        checkforReadOnly = e.target.checked ? e.target.checked : false;
+                        toggleEditor("editor_" + index, checkforReadOnly);
+                    })
+                }
+            });
+
+        });
+    }
+    var QuillToolbarOptions = [
+        //   ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+        ['blockquote', 'code-block'],
+
+        //   [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+        //   [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+        [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
+        //   [{ 'direction': 'rtl' }],                         // text direction
+
+        [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+        //   [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+        //   [{ 'font': [] }],
+        [{ 'align': [] }],
+
+        ['clean']                                         // remove formatting button
+    ];
+
+    var Delta = Quill.import('delta');
+    var quill = new Quill('#editor-container', {
+        modules: {
+            toolbar: QuillToolbarOptions
+        },
+        placeholder: 'Add Notes Here...',
+        theme: 'bubble'
+    });
+
+    // Store accumulated changes
+    var change = new Delta();
+    quill.on('text-change', function (delta) {
+        change = change.compose(delta);
+    });
+
+
+
+    var localData = localStorage.getItem('quillEditor') ? JSON.parse(localStorage.getItem('quillEditor')) : {};
+    var cacheLocalDataLength = Object.keys(localData).length
+    if (cacheLocalDataLength <= 0) {
+        localData.content = '';
+        localData.lastUpdated = new Date();
+    }
+    if (cacheLocalDataLength > 0) {
+        quill.root.innerHTML = localData.content || '';
+        document.getElementById('timeString').innerText = new Date(localData.lastUpdated).toLocaleString('en-GB')
+    }
+
+    // Save periodically
+    setInterval(function () {
+        if (change.length() > 0) {
+            change = new Delta();
+            var html = quill.root.innerHTML;
+            localData.content = html;
+            localData.lastUpdated = new Date();
+
+            localStorage.setItem('quillEditor', JSON.stringify(localData))
+            document.getElementById('timeString').innerText = new Date(localData.lastUpdated).toLocaleString('en-GB')
+
+        }
+    }, 5 * 1000);
+
+    // Check for unsaved data
+    window.onbeforeunload = function () {
+        if (change.length() > 0) {
+            return 'There are unsaved changes. Are you sure you want to leave?';
+        }
+    }
+</script>
+<script>
+    function render(indexStr) {
+        canRunToConsole = false;
+        try {
+
+            var F = new Function((monEditor[indexStr]).getModel().getValue());
+            console.clear();
+            F();
+            canRunToConsole = true;
+        } catch (e) {
+
+            var console_err_slot = document.querySelector("#console_error");
+            if (console_err_slot) console_err_slot.innerHTML = '';
+            console_err_slot.innerHTML = e;
+            if (toast) {
+                toast.hide();
+                toast.show();
+            }
+            canRunToConsole = false;
+
+        }
+        if (canRunToConsole) {
+            document.querySelector('#for-console').scrollIntoView({ behavior: 'smooth' });
+
+        }
+    }
+
+    function toggleEditor(indexStr, flag) {
+        monEditor[indexStr].updateOptions({ readOnly: flag })
+    }
+
+    function returnNumberOfLines(str) {
+        return str.split('\n').map(i => i.trim()).length
+    }
+    function trimScriptText(str) {
+
+        return str.split('\n').map(i => i.trim()).join('\n')
+    }
+    function copyStringToClipboard(string) {
+        function handler(event) {
+            event.clipboardData.setData('text/plain', string);
+            event.preventDefault();
+            document.removeEventListener('copy', handler, true);
+        }
+
+        document.addEventListener('copy', handler, true);
+        document.execCommand('copy');
+    }
+</script>
+<script>
+    var oldLog = window.console.log;
+    var oldErrorLog = window.console.error;
+
+    var console_slot = document.querySelector("#html_console");
+    window.console.log = function (...args) {
+        var strinigifiedResult = JSON.stringify(args.length > 1 ? args : args[0], null, 2);
+        // strinigifiedResult.substr(0,strinigifiedResult.length).substr(-1,strinigifiedResult.length)
+        var pre = document.createElement("pre");
+        pre.textContent = strinigifiedResult;
+        hljs.highlightElement(pre);
+
+        console_slot.appendChild(pre);
+        oldLog.apply(this, args);
+    };
+
+    window.console.clear = function (...args) {
+        console_slot.innerHTML = "";
+        oldLog.apply(this, args);
+    };
+</script>
+<style>
+    .hljs {
+        font-family: J;
+    }
+
+    .card {
+        border-radius: 20px;
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        border: none;
+    }
+
+    .card-header {
+        border-top-left-radius: 20px !important;
+        border-top-right-radius: 20px !important;
+    }
+
+    .nav-tabs .nav-link {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+
+    }
+
+    .hljs {
+        font-family: 'JetBrains Mono', monospace !important;
+        font-size: 12px;
+        border-radius: 20px;
+        padding: 10px;
+    }
+
+    .nav-tabs .nav-link:focus,
+    .nav-tabs .nav-link:hover {
+        border-color: #e9ecef #e9ecef #dee2e6;
+        isolation: isolate;
+        border-top: 5px solid #e9ecef;
+    }
+
+    .nav-tabs .nav-item.show .nav-link,
+    .nav-tabs .nav-link.active {
+        color: #495057;
+        background-color: #fff;
+        /* border-width: 5px; */
+        border-color: #e9ecef #dee2e6 #fff;
+        border-top: 5px solid #e9ecef;
+
+    }
+
+    .stuck {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        bottom: 10px;
+        overflow-y: scroll;
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css">
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/languages/javascript.min.js"></script>
+
+
+</html>
