@@ -531,7 +531,7 @@
                                     ['name', 'age'],
                                     ['srini', 42]
                                 ];
-                                const returnedTarget5 =  Object.fromEntries(user4);
+                                const returnedTarget5 = Object.fromEntries(user4);
                                 console.log(returnedTarget5);// {name: "age", srini: 42}
                             </script>
 
@@ -625,6 +625,10 @@
             height: 250px;
             width: 100%;
             }
+            .editor .makeBig {
+            height: 400px;
+            width: 100%;
+            }
          </style>
       </div>
    </div>
@@ -667,6 +671,12 @@
 </script>
 <script>
     var toast = new bootstrap.Toast(document.getElementById('liveToast'))
+    function toggleEditorSize(e,index) {
+        console.log(index)
+        monEditor[indexStr].updateOptions({ readOnly: flag })
+        // var element = document.getElementById("editor");
+        // element.classList.toggle("mystyle");
+    }
     var monEditor = {};
     var evt_collection = {}
     let js_Sections = document.querySelectorAll("section.js-section");
@@ -714,6 +724,7 @@
                     tabOfCode.insertAdjacentHTML('beforeend', dynamicTabCode(index));
 
                     let container = jsContent.querySelector(".editor");
+
                     let scripts = jsContent.querySelector(".js-code-block");
                     let runCodeBlock = jsContent.querySelector(".run-code");
                     let codeSlot = jsContent.querySelector(".code-slot");
