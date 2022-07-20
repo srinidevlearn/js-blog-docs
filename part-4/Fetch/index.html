@@ -38,197 +38,86 @@
         <div class="container" style="margin-top: 8rem">
             <div class="row">
                 <div class="col-12 col-sm-12 overflow-auto">
-                    <section class="my-3 mx-auto js-section" id="intro_to_dom">
+                    <section class="my-3 mx-auto js-section" id="xml_http_post1">
                         <div class="card">
-                            <div class="card-header">Introduction To D.O.M</div>
-                            <div class="card-body">
-                                <ul></ul>
-                            </div>
-                            <div class="card-body tab-code"></div>
-                            <script class="js-code-block"></script>
-                            <div class="card-text px-2">Please exclude html,head,body tags in it</div>
-
-                            <div class="card-body">
-                                <div id="dom-view"></div>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="my-3 mx-auto js-section" id="dom_methods_inbuilt">
-                        <div class="card">
-                            <div class="card-header">Inbuilt DOM methods</div>
-                            <div class="card-body">
-                                <table class="table-sm table-borderless">
-                                    <thead>
-                                        <tr>
-                                            <th>Method </th>
-                                            <th>Searches by... </th>
-                                            <th>Purpose </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th>querySelector </th>
-                                            <td>CSS-selector </td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td>  Selection will be made using CSS selector </td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td>  Returns single element </td>
-                                        </tr>
-                                       
-                                        <tr>
-                                            <th>querySelectorAll </th>
-                                            <td>CSS-selector </td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td>  Selection will be made using CSS selector </td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td>  Returns all element as NodeList array, </td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td>  foreach is only possible </td>
-                                        </tr>
-                                     
-                                        <tr>
-                                            <th>getElementById </th>
-                                            <td>id </td>
-                                            <td>If an element has the id attribute, we can get the element using the method </td>
-                                        </tr>
-                                        <tr>
-                                            <th>getElementsByName </th>
-                                            <td>name </td>
-                                            <td>If an element has the name attribute, we can get the element using the method </td>
-                                        </tr>
-                                        <tr>
-                                            <th>getElementsByTagName </th>
-                                            <td>tag or '*' </td>
-                                            <td>we can get the element by tag name using the method </td>
-                                        </tr>
-                                        <tr>
-                                            <th>getElementsByClassName </th>
-                                            <td>class </td>
-                                            <td>If an element has the class attribute, we can get the element using the method </td>
-                                        </tr>
-                                        <tr>
-                                            <th>setAttribute </th>
-                                            <td>- </td>
-                                            <td>Sets or changes the specified attribute to a specified value </td>
-                                        </tr>
-                                        <tr>
-                                            <th>removeAttribute </th>
-                                            <td>- </td>
-                                            <td>Removes a specified attribute from an element </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- <div class="card-body tab-code"></div> -->
-                            <!-- <script class="js-code-block"></script> -->
-                           
-
-                            <!-- <div class="card-body">
-                                <div id="dom-view"></div>
-                            </div> -->
-                        </div>
-                    </section>
-                    <section class="my-3 mx-auto js-section" id="dom_node_props">
-                        <div class="card">
-                            <div class="card-header">Node Properties</div>
-                            <div class="card-body" id="node_properties_load"></div>
-                            <div class="card-body" id="node_properties_html_code"></div>
-                            <div class="card-body" id="node_properties_html_output"></div>
+                            <div class="card-header">Fetch request using POST</div>
 
                             <div class="card-body tab-code"></div>
                             <script class="js-code-block">
-                                let group = [
-                                    document.querySelector('#node_properties_html_output #name').attributes, // NamedNodeMap {0: id, id: id, length: 1} 
-                                    document.querySelector('#node_properties_html_output #name').firstChild, // "Santhosh" 
-                                    document.querySelector('#node_properties_html_output #name').lastChild, //"Santhosh" 
-                                    document.querySelector('#node_properties_html_output #name').nextSibling, // returns complete detail of next siblings node 
-                                    document.querySelector('#node_properties_html_output #name').nodeName, // "SPAN" 
-                                    document.querySelector('#node_properties_html_output #name').nodeType, // 1 
-                                    document.querySelector('#node_properties_html_output #name').nodeValue, //null
-                                    document.querySelector('#name').parentNode,
-                                    /** 
-                                    * <h4> 
-                                    * <span class="headerStyle">Name :</span> 
-                                    * <span id="name">Santhosh</span> 
-                                    * </h4> 
-                                    * */
-                                    document.querySelector('#name').previousSibling, // <span class="headerStyle">Name :</span> 
-                                    document.querySelector('#name').textContent // "Santhosh"
-
-                                ];
-                                for (let item of group) console.log(`group ===>`, item)
+                                function fetchCallPost() {
+                                    fetch(`https://reqres.in/api/login`, {
+                                        method: 'POST', headers: {
+                                            'Content-Type': 'application/json',
+                                        }, body: JSON.stringify({
+                                            email: "eve.holt@reqres.in",
+                                            password: "cityslicka",
+                                        })
+                                    }).then(response => response.json()).catch(console.error).then(d => console.log(d)).catch(console.error)
+                                }
+                                fetchCallPost();
                             </script>
 
                         </div>
                     </section>
-                    <section class="my-3 mx-auto js-section" id="dom_node_methods">
+                    <section class="my-3 mx-auto js-section" id="xml_http_post2">
                         <div class="card">
-                            <div class="card-header">Node Properties</div>
-                            <div class="card-body" id="node_method_load"></div>
-                            <div class="card-body" id="node_method_html_code"></div>
-                            <div class="card-body" id="node_method_html_output"></div>
+                            <div class="card-header">Fetch request using GET</div>
 
                             <div class="card-body tab-code"></div>
                             <script class="js-code-block">
-                                const p = document.createElement('p');
-                                p.innerText = 'Hello World';
-                                document.querySelector('.card').appendChild(p);
-                                // <p>Hello World</p> 
-                                let group2 = [
-                                    // clone node 
-                                    document.querySelector('#node_method_html_output .card').cloneNode(),
-                                    // <div class="card"></div> 
-                                    // hasAttributes 
-                                    document.querySelector('#node_method_html_output .card').hasAttributes('id'), // true 
-                                    // hasChildNodes 
-                                    document.querySelector('#node_method_html_output .card').hasChildNodes(), // true 
-                                    document.querySelector('#node_method_html_output .card').isEqualNode(p), // false 
-                                    document.querySelector('#node_method_html_output .card').isSameNode(p), // false 
-                                    document.querySelector('#node_method_html_output .card').removeChild(p),
-                                    /** 
-                                    * <p>Hello World</p> 
-                                    */
-                                    //getAttribute 
-                                    document.querySelector('#node_method_html_output .card').getAttribute('class'), // card 
-                                    document.querySelector('#node_method_html_output .card').getAttribute('id'), // null 
-                                    //getAttributeNode 
-                                    document.querySelector('#node_method_html_output .card').getAttributeNode('class'), //class="card" 
-                                    document.querySelector('#node_method_html_output .card').getAttributeNode('style'), // null 
-                                    document.querySelectorAll('#node_method_html_output .card'),
-                                    // NodeList [div.card]0: div.cardlength: 1__proto__: NodeList 
-                                    //getElementsByTagName 
-                                    document.getElementsByTagName('div'),
-                                    /** 
-                                    * HTMLCollection(5) [div.card, div.profile, div, div, div] 
-                                    */
-                                    document.getElementsByName('name'), // null because name attribute not available within elements 
-                                    // set attribute 
-                                    // for id attribute dynamicId value was assigned 
-                                    document.querySelector('#node_method_html_output .card').setAttribute('id', 'dynamicId'), // <div class="card" id="dynamicId"></div> 
-                                    // remove attribute 
-                                    // id attribute removed 
-                                    document.querySelector('.card').removeAttribute('id') // <div class="card"></div>
+                                function fetchCallGET() {
+                                    fetch(`https://reqres.in/api/users?page=2&delay=5`, {
+                                        method: 'GET', headers: {
+                                            'Content-Type': 'application/json',
+                                        }
+                                    }).then(response => response.json()).catch(console.error).then(d => console.log(d)).catch(console.error)
+                                }
+                                fetchCallGET();
+                            </script>
 
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="xml_http_post3">
+                        <div class="card">
+                            <div class="card-header">Fetch request using PUT</div>
 
-                                ];
-                                for (let item of group2) console.log(`group ===>`, item)
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                function frameFormData(data) {
+                                    let formData = new FormData();
+                                    for (let item in data) {
+                                        formData.append(item, data[item])
+                                    }
+                                }
+                                function fetchCallPUT() {
+                                    fetch(`https://reqres.in/api/users/2`, {
+                                        method: 'PUT', headers: {
+                                            'Content-Type': 'application/json',
+                                        }, body: frameFormData({
+                                            "name": "morpheus",
+                                            "job": "zion resident"
+                                        })
+
+                                    }).then(response => response.json()).catch(console.error).then(d => console.log(d)).catch(console.error)
+                                }
+                                fetchCallPUT();
+                            </script>
+
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="xml_http_post4">
+                        <div class="card">
+                            <div class="card-header">Fetch request using DELETE</div>
+
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">                               
+                                function fetchCallDELETE() {
+                                    fetch(`https://reqres.in/api/users/2`, {
+                                        method: 'DELETE'
+
+                                    }).then(response => response.json()).catch(console.error).then(d => console.log(d)).catch(console.error)
+                                }
+                                fetchCallDELETE();
                             </script>
 
                         </div>
@@ -439,7 +328,7 @@
             Object.keys(monEditor).map(i => monEditor[i].layout())
         }
     })
-    const htmlIndex = [0]
+    const htmlIndex = []
 
     function initAllEditors() {
         require(["vs/editor/editor.main"], function () {
@@ -455,24 +344,24 @@
                     let codeCopy = jsContent.querySelector(".code-coppy");
                     let switchBox = jsContent.querySelector("#flexSwitchCheckChecked");
                     let scriptText = scripts ? trimScriptText(String(scripts.innerText)) : '';
-                    if (htmlIndex.includes(index)) {
-                        monacoEditorConfig.value = `<div class="card">
-                                                    <div class="card-body">
-                                                        This is some text within a card body.
-                                                    </div>
-                                                    </div>`;
+                    // if (htmlIndex.includes(index)) {
+                    //     monacoEditorConfig.value = `<div class="card">
+                    //                                 <div class="card-body">
+                    //                                     This is some text within a card body.
+                    //                                 </div>
+                    //                                 </div>`;
 
-                        monEditor["editor_" + index] = monaco.editor.create(container, {
-                            ...monacoEditorConfig,
-                            ...{
-                                language: 'html', readOnly: false
-                            }
-                        });
+                    //     monEditor["editor_" + index] = monaco.editor.create(container, {
+                    //         ...monacoEditorConfig,
+                    //         ...{
+                    //             language: 'html', readOnly: false
+                    //         }
+                    //     });
 
-                    } else {
-                        monacoEditorConfig.value = scriptText
-                        monEditor["editor_" + index] = monaco.editor.create(container, monacoEditorConfig);
-                    }
+                    // } else {
+                    monacoEditorConfig.value = scriptText
+                    monEditor["editor_" + index] = monaco.editor.create(container, monacoEditorConfig);
+                    // }
                     const returnOfString = (scripts) => scripts.outerHTML.replaceAll("<", "&lt;").replaceAll(">", "&gt;")
                     codeSlot.insertAdjacentHTML('afterBegin', `
 					<pre>
@@ -795,10 +684,10 @@
                 </tr>`
         }
         table += '</table>';
-        document.querySelector('#node_method_load').innerHTML = table;
-        document.querySelector('#node_method_html_output').innerHTML = cardStr;
-        document.querySelector('#node_method_html_code').innerHTML = `<pre><code class="hljs dynamiccontent"><code></pre>`;
-        document.querySelector('.hljs.dynamiccontent').textContent = cardStr
+        // document.querySelector('#node_method_load').innerHTML = table;
+        // document.querySelector('#node_method_html_output').innerHTML = cardStr;
+        // document.querySelector('#node_method_html_code').innerHTML = `<pre><code class="hljs dynamiccontent"><code></pre>`;
+        // document.querySelector('.hljs.dynamiccontent').textContent = cardStr
     }
     loadNodeMethods();
     function loadNodeProperties() {
@@ -825,10 +714,10 @@
                 </tr>`
         }
         table += '</table>';
-        document.querySelector('#node_properties_load').innerHTML = table;
-        document.querySelector('#node_properties_html_output').innerHTML = cardStr;
-        document.querySelector('#node_properties_html_code').innerHTML = `<pre><code class="hljs dynamiccontent"><code></pre>`;
-        document.querySelector('.hljs.dynamiccontent').textContent = cardStr
+        // document.querySelector('#node_properties_load').innerHTML = table;
+        // document.querySelector('#node_properties_html_output').innerHTML = cardStr;
+        // document.querySelector('#node_properties_html_code').innerHTML = `<pre><code class="hljs dynamiccontent"><code></pre>`;
+        // document.querySelector('.hljs.dynamiccontent').textContent = cardStr
 
     }
     loadNodeProperties();
