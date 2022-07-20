@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="cache-control" content="max-age=604800, must-revalidate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <link rel="https://raw.githubusercontent.com/googlearchive/code-prettify/master/styles/sunburst.css">
+    <!-- <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet"> -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body>
+    <main>
+        <nav class="navbar navbar-light bg-light fixed-top start-0">
+            <div class="alert alert-warning w-100 mb-0 small">
+                <mark>Note :</mark> Certain piece of code may misbehave due to scoping and other executable order issue,
+                it can be treated as quick reference documents. If you wish to implement, kindly implement separately in
+                local script tag /external js.
+            </div>
+        </nav>
+        <div class="container" style="margin-top: 8rem;">
+            <div class="row">
+                <div class="col-12 col-sm-12">
+                    <section class="my-3 mx-auto js-section" id="promise_desc">
+                        <div class="card">
+                            <div class="card-header">Why Promise ?</div>
+
+                            <div class="card-body">
+                                <ul>
+                                    <li>
+                                        The Promise object represents the eventual completion (or failure) of an
+                                        asynchronous operation and its resulting value.
+                                    </li>
+                                    <li>
+                                        Callback Hell is essentially nested callbacks stacked below one another forming
+                                        a pyramid structure. Every callback depends/waits for the previous callback,
+                                        thereby making a pyramid structure that affects the readability and
+                                        maintainability of the code.
+                                    </li>
+                                    <li>
+                                        By using promise we can overcome the callback Hell, also we can procide better
+                                        readability and code writability
+                                    </li>
+                                    <li>
+                                        Syntax:
+                                        <br>
+                                        <pre class="d-inline text-danger bg-danger bg-opacity-25 px-1">
+        new Promise(function(resolve,reject){
+            if(success)resolve()
+            if(failure)reject()
+
+        }).then(d=>catch success)
+          .catch(e=>catch error)                                        </pre>
+                                    </li>
+
+
+                                </ul>
+                                <div class="card-body">
+                                    Note :
+                                    Data stored in sessionStorage is specific to the protocol of the page. In
+                                    particular, data stored by a script on a site accessed with HTTP (e.g.,
+                                    http://example.com) is put in a different sessionStorage object from the same site
+                                    accessed with HTTPS (e.g., https://example.com).
+                                </div>
+                            </div>
+
+                            <!-- <div class="card-body tab-code"></div> -->
+
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="exampleOfCB">
+                        <div class="card">
+                            <div class="card-header">Example of CB</div>
+
+                            <div class="card-body">
+
+                            </div>
+
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                function callback0(value) {
+                                    console.log('callback0', value)
+                                    return value + ' and bar '
+                                }
+
+                                function callback1(value) {
+                                    console.log('callback1', value)
+
+                                    return value + ' and also baz ';
+
+                                }
+
+                                function callback2(value) {
+                                    console.log('callback2', value)
+
+                                    return value + ' and also foo';
+
+                                }
+
+                                let result =
+                                    callback2(
+                                        callback1(
+                                            callback0('value1')
+
+                                        )
+                                    )
+
+                                console.log(result);
+
+                            </script>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="exampleOfPromise">
+                        <div class="card">
+                            <div class="card-header">Example of Promise</div>
+
+                            <div class="card-body">
+
+                            </div>
+
+                            <div class="card-body tab-code"></div>
+                            <script class="js-code-block">
+                                function promisePseudoCode(value, throwError = false) {
+                                    return new Promise(function (resolve, reject) {
+                                        if (throwError) reject(value)
+                                        else resolve(value)
+                                    })
+                                }
+                                let throwError = true;
+                                let promiseWithoutError = (value) => new promisePseudoCode(value);
+                                let promiseWithError = (value, throwError) => new promisePseudoCode(value, true);
+
+
+                                promiseWithoutError('value 1').then(function (value) {
+                                    console.log('then0', value)
+                                    return value + ' and bar'
+                                }).then(function (value) {
+                                    console.log('then1', value)
+
+
+                                    return value + ' and also baz'
+                                }).then(function (value) {
+                                    console.log('then2', value)
+
+
+                                    return value + ' and also foo'
+                                }).then(console.log)
+
+
+                                promiseWithError('value 1', throwError).then(function (value) {
+                                    console.log(value)
+                                    return value + ' and bar'
+                                }).then(function (value) {
+                                    console.log('then1', value)
+
+                                    return value + ' and also baz'
+                                }).then(function (value) {
+                                    console.log('then2', value)
+
+
+                                    return value + ' and also foo'
+                                }).then(console.log).catch(function (e) {
+
+                                    console.error(e)
+                                })
+
+                            </script>
+                        </div>
+                    </section>
+                    <section class="my-3 mx-auto js-section" id="cbvspromise">
+                        <div class="card">
+                            <div class="card-header">Callback
+                                <pre class="d-inline text-danger">vs</pre> Promise
+                            </div>
+
+                            <div class="card-body table-responsive">
+                                <table class="table table-borderless table-sm"
+                                    style="max-width: 100%;">
+                                    <thead>
+                                        <th class="col">Example of callback</th>
+                                        <th class="col">Example of Promise</th>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <pre class="hljs d-inline-block w-100">
+                                                    <code class="javascript">
+function callback0(value) {
+console.log('callback0', value)
+return value + ' and bar '
+}
+
+function callback1(value) {
+console.log('callback1', value)
+return value + ' and also baz ';
+}
+
+function callback2(value) {
+console.log('callback2', value)
+return value + ' and also foo';
+}
+        
+let result = 
+    callback2(
+                callback1(
+                        callback0('value1')
+                            
+                    )
+            )
+
+console.log(result);
+                                          </code>  </pre>
+                                            </td>
+
+                                            <td>
+                                                <pre class="hljs d-inline-block w-100">
+                                                    <code class="javascript">
+    function promisePseudoCode(value, throwError = false) {
+        return new Promise(function(resolve, reject) {
+            if (throwError) reject(value)
+            else resolve(value)
+        })
+    }
+    new promisePseudoCode('value 1').then(function(value) {
+        console.log('then0',value)
+        return value + ' and bar'
+        }).then(function(value) {
+            console.log('then1',value)       
+        return value + ' and also baz'
+        }).then(function(value) {
+            console.log('then2',value)        
+        return value + ' and also foo'
+        }).then(console.log)
+                                                 </code>
+                                            </pre>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+
+                        </div>
+                    </section>
+
+                </div>
+                <div class="col-12 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            Personal Learning Notes
+                        </div>
+                        <div class="card-body">
+                            <div id="editor-container" style="height: auto;"></div>
+                        </div>
+                        <div class="card-footer text-end text-muted"><small>Updated on <span
+                                    id="timeString"></span></small></div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 overflow-auto">
+                    <section id="for-console" class="my-3 mx-auto">
+                        <div class="card">
+                            <div class="card-text text-start ms-3 text-muted">Only last run script can be viewed below
+                            </div>
+                            <div class="card-header bg-transparent border-0 d-flex justify-content-between">
+                                <div>
+                                    <a class="btn btn-outline-primary rounded-pill" data-bs-toggle="collapse"
+                                        href="#collapseExample" role="button" aria-expanded="false"
+                                        aria-controls="multiCollapseExample1"> <i class="fa fa-terminal me-2"
+                                            aria-hidden="true"></i> Toggle console </a>
+                                </div>
+                            </div>
+                            <div class="collapse-in" id="collapseExample">
+                                <div class="card-body" id="html_console"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="position-fixed bottom-0 end-0 p-3 text-danger" style="z-index: 11">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header bg-danger text-white">
+
+                    <strong class="me-auto small">Error</strong>
+                    <button type="button" class="btn-close text-white" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+                </div>
+                <div class="toast-body bg-danger text-white" id="console_error">
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+
+
+<script>
+    function dynamicTabCode(index) {
+        return `<ul class="nav nav-tabs" role="tablist">
+   <li class="nav-item active">
+      <a class="nav-link" data-bs-toggle="tab" data-bs-target="#code-exe-${index}" type="button" role="tab">Executable Code</a>
+   </li>
+   <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" data-bs-target="#code-snippet-${index}" type="button" role="tab">Snippet code</a>
+   </li>
+</ul>
+<div class="tab-content">
+   <div id="code-exe-${index}" class="card active border-0 tab-pane mt-2">
+      <div class="card-body">
+         <div class="d-flex justify-content-between align-items-center p-2 bg-light">
+            <div>JS Code</div>
+            <div class="d-flex">
+               <div class="form-check form-switch align-self-center mx-2">
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                  <label class="form-check-label" for="flexSwitchCheckChecked">Readonly</label>
+               </div>
+               <div>
+                  <button type="button"
+                     class="btn btn-outline-primary rounded-pill run-code"> <i
+                     class="fa fa-play"></i> </button>
+               </div>
+            </div>
+         </div>
+         <div class="editor overflow-auto"></div>
+         <style>
+            .editor {
+            height: 200px;
+            width: 100%;
+            }
+         </style>
+      </div>
+   </div>
+   <div id="code-snippet-${index}" class="card border-0 tab-pane mt-2">
+      <div class="card-body">
+         <div class="d-flex justify-content-between align-items-center p-2 bg-light">
+            <div>
+               JS Code
+            </div>
+            <div class="">
+               <button type="button" class="btn btn-outline-primary code-coppy"><i
+                  class="fa fa-copy"></i></button>
+            </div>
+         </div>
+         <div class="code-slot shadow-sm rounded-3 p-3"></div>
+      </div>
+   </div>
+</div>`
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.15.6/min/vs/loader.js"></script>
+<script>
+    require.config({
+        paths: {
+            vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.15.6/min/vs/",
+        },
+    });
+    window.MonacoEnvironment = {
+        getWorkerUrl(workerId, label) {
+            return `data:text/javascript;charset=utf-8,${encodeURIComponent(`
+		self.MonacoEnvironment = {
+			baseUrl: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.15.6/min/'
+		};
+		importScripts('https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.15.6/min/vs/base/worker/workerMain.js');
+		`)}`;
+        },
+    };
+</script>
+<script>
+    var toast = new bootstrap.Toast(document.getElementById('liveToast'))
+    var monEditor = {};
+    var evt_collection = {}
+    let js_Sections = document.querySelectorAll("section.js-section");
+    let monacoEditorConfig = {
+
+        language: "javascript",
+        lineNumbers: "on",
+        roundedSelection: true,
+        automaticLayout: true,
+        scrollBeyondLastLine: true,
+        readOnly: true,
+        contextmenu: false,
+        fontFamily: 'Jetbrains Mono',
+        fontLigatures: true,
+        'fontWeight': 400,
+        'fontSize': '12',
+        theme: "vs-dark",
+        "autoIndent": true,
+        "formatOnPaste": true,
+        "formatOnType": true,
+        minimap: {
+            enabled: false
+        }
+    }
+    window.addEventListener("DOMContentLoaded", (event) => {
+        setTimeout(() => {
+
+            initAllEditors();
+
+        }, 2000);
+    });
+    window.addEventListener('resize', (event) => {
+        // make editor as small as possible
+        if (Object.keys(monEditor).length > 0) {
+            Object.keys(monEditor).map(i => monEditor[i].layout())
+        }
+    })
+
+    function initAllEditors() {
+        require(["vs/editor/editor.main"], function () {
+            js_Sections.forEach((jsContent, index, arr) => {
+                let tabOfCode = jsContent.querySelector('.tab-code')
+                if (tabOfCode) {
+                    tabOfCode.innerHTML = "";
+                    tabOfCode.insertAdjacentHTML('beforeend', dynamicTabCode(index));
+
+                    let container = jsContent.querySelector(".editor");
+                    let scripts = jsContent.querySelector(".js-code-block");
+                    let runCodeBlock = jsContent.querySelector(".run-code");
+                    let codeSlot = jsContent.querySelector(".code-slot");
+                    let codeCopy = jsContent.querySelector(".code-coppy");
+                    let switchBox = jsContent.querySelector("#flexSwitchCheckChecked");
+
+                    let scriptText = scripts ? trimScriptText(String(scripts.innerText)) : '';
+                    monacoEditorConfig.value = scriptText
+                    monEditor["editor_" + index] = monaco.editor.create(container, monacoEditorConfig);
+
+                    const returnOfString = (scripts) => scripts.outerHTML.replaceAll("<", "&lt;").replaceAll(">", "&gt;")
+                    codeSlot.insertAdjacentHTML('afterBegin', `<pre><code class="language-html">${returnOfString(scripts)}</code></pre>`);
+                    hljs.highlightElement(codeSlot);
+
+                    codeCopy.addEventListener('click', function (e) {
+                        copyStringToClipboard(scriptText)
+                    })
+                    runCodeBlock.addEventListener('click', function (e) {
+                        render("editor_" + index);
+                    })
+                    switchBox.addEventListener('click', function (e) {
+
+                        checkforReadOnly = e.target.checked ? e.target.checked : false;
+                        toggleEditor("editor_" + index, checkforReadOnly);
+                    })
+                }
+            });
+
+        });
+    }
+    var QuillToolbarOptions = [
+        //   ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+        ['blockquote', 'code-block'],
+
+        //   [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+        //   [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+        [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
+        //   [{ 'direction': 'rtl' }],                         // text direction
+
+        [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+        //   [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+        //   [{ 'font': [] }],
+        [{ 'align': [] }],
+
+        ['clean']                                         // remove formatting button
+    ];
+
+    var Delta = Quill.import('delta');
+    var quill = new Quill('#editor-container', {
+        modules: {
+            toolbar: QuillToolbarOptions
+        },
+        placeholder: 'Add Notes Here...',
+        theme: 'bubble'
+    });
+
+    // Store accumulated changes
+    var change = new Delta();
+    quill.on('text-change', function (delta) {
+        change = change.compose(delta);
+    });
+
+
+
+    var localData = localStorage.getItem('quillEditor') ? JSON.parse(localStorage.getItem('quillEditor')) : {};
+    var cacheLocalDataLength = Object.keys(localData).length
+    if (cacheLocalDataLength <= 0) {
+        localData.content = '';
+        localData.lastUpdated = new Date();
+    }
+    if (cacheLocalDataLength > 0) {
+        quill.root.innerHTML = localData.content || '';
+        document.getElementById('timeString').innerText = new Date(localData.lastUpdated).toLocaleString('en-GB')
+    }
+
+    // Save periodically
+    setInterval(function () {
+        if (change.length() > 0) {
+            change = new Delta();
+            var html = quill.root.innerHTML;
+            localData.content = html;
+            localData.lastUpdated = new Date();
+
+            localStorage.setItem('quillEditor', JSON.stringify(localData))
+            document.getElementById('timeString').innerText = new Date(localData.lastUpdated).toLocaleString('en-GB')
+
+        }
+    }, 5 * 1000);
+
+    // Check for unsaved data
+    window.onbeforeunload = function () {
+        if (change.length() > 0) {
+            return 'There are unsaved changes. Are you sure you want to leave?';
+        }
+    }
+</script>
+<script>
+    function render(indexStr) {
+        canRunToConsole = false;
+        try {
+
+            var F = new Function((monEditor[indexStr]).getModel().getValue());
+            console.clear();
+            F();
+            canRunToConsole = true;
+        } catch (e) {
+
+            var console_err_slot = document.querySelector("#console_error");
+            if (console_err_slot) console_err_slot.innerHTML = '';
+            console_err_slot.innerHTML = e;
+            if (toast) {
+                toast.hide();
+                toast.show();
+            }
+            canRunToConsole = false;
+
+        }
+        if (canRunToConsole) {
+            document.querySelector('#for-console').scrollIntoView({ behavior: 'smooth' });
+
+        }
+    }
+
+    function toggleEditor(indexStr, flag) {
+        monEditor[indexStr].updateOptions({ readOnly: flag })
+    }
+
+    function returnNumberOfLines(str) {
+        return str.split('\n').map(i => i.trim()).length
+    }
+    function trimScriptText(str) {
+
+        return str.split('\n').map(i => i.trim()).join('\n')
+    }
+    function copyStringToClipboard(string) {
+        function handler(event) {
+            event.clipboardData.setData('text/plain', string);
+            event.preventDefault();
+            document.removeEventListener('copy', handler, true);
+        }
+
+        document.addEventListener('copy', handler, true);
+        document.execCommand('copy');
+    }
+</script>
+<script>
+    var oldLog = window.console.log;
+    var oldErrorLog = window.console.error;
+
+    var console_slot = document.querySelector("#html_console");
+    window.console.log = function (...args) {
+        var strinigifiedResult = JSON.stringify(args.length > 1 ? args : args[0], null, 2);
+        // strinigifiedResult.substr(0,strinigifiedResult.length).substr(-1,strinigifiedResult.length)
+        var pre = document.createElement("pre");
+        pre.textContent = strinigifiedResult;
+        hljs.highlightElement(pre);
+
+        console_slot.appendChild(pre);
+        oldLog.apply(this, args);
+    };
+
+    window.console.clear = function (...args) {
+        console_slot.innerHTML = "";
+        oldLog.apply(this, args);
+    };
+</script>
+<style>
+    .hljs {
+        font-family: J;
+    }
+
+    .card {
+        border-radius: 20px;
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        border: none;
+    }
+
+    .card-header {
+        border-top-left-radius: 20px !important;
+        border-top-right-radius: 20px !important;
+    }
+
+    .nav-tabs .nav-link {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+
+    }
+
+    .hljs {
+        font-family: 'JetBrains Mono', monospace !important;
+        font-size: 12px;
+        border-radius: 20px;
+        padding: 10px;
+    }
+
+    .nav-tabs .nav-link:focus,
+    .nav-tabs .nav-link:hover {
+        border-color: #e9ecef #e9ecef #dee2e6;
+        isolation: isolate;
+        border-top: 5px solid #e9ecef;
+    }
+
+    .nav-tabs .nav-item.show .nav-link,
+    .nav-tabs .nav-link.active {
+        color: #495057;
+        background-color: #fff;
+        /* border-width: 5px; */
+        border-color: #e9ecef #dee2e6 #fff;
+        border-top: 5px solid #e9ecef;
+
+    }
+
+    .stuck {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        bottom: 10px;
+        overflow-y: scroll;
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/atom-one-dark.min.css">
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.0/build/languages/javascript.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+</html>
